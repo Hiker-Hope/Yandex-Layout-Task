@@ -504,6 +504,7 @@ delete the code above!!!
 .temperature-range__extreme {
     font-size: 18px;
     color: #FFFFFF;
+    white-space: nowrap;
 }
 
 
@@ -617,17 +618,20 @@ delete the code above!!!
         overflow: scroll;
         width: 314px;
     }
+    .modal__main--settings-menu-item--text {
+        font-family: ArialMT;
+    }
 
     .modal__main--range-slider {
         height: 336px;
-    }
+    }  
 
     .menu-section__item--range {
         width: 336px;
         transform: rotate(270deg) translate(-135px, -20px);
     }
     .temperature-range__extremes {
-        flex-direction: column;
+        flex-direction: column-reverse;
         height: 308px;
         width: 0;
         top: 142px;
