@@ -57,6 +57,7 @@ body{
     justify-content: space-between;
     width: 200px;
     height: 120px;
+    cursor: pointer;
 }
 
 .item:hover {
@@ -256,6 +257,8 @@ delete the code above!!!
 .menu-section {   
     display: flex;
     border: none;
+}
+.modal__menu {
     margin: 20px 0 25px;
 }
 
@@ -271,6 +274,7 @@ delete the code above!!!
     color: #000000;
     margin-right: 10px;
     white-space: nowrap;
+    cursor: pointer;
 }
 
 .menu-section__item:checked + label {
@@ -332,7 +336,6 @@ delete the code above!!!
     bottom: 0;
     background-color:  rgba(51,51,51,0.50);
     z-index: 2;
-    cursor: pointer;
 }
 
 .overlay.popup {
@@ -349,7 +352,7 @@ delete the code above!!!
     grid-template-columns: 307px 307px;
     grid-gap: 16px;
     row-gap: 20px;
-    transition: all .5s ease-in-out; 
+    transition: all 350ms ease-in-out; 
 }
 
 .modal-container.popup {
@@ -380,10 +383,7 @@ delete the code above!!!
     font-size: 18px;
     border: none;
     outline: none;
-}
-
-.modal-item__button:hover {
-    text-shadow: 0.5px 0px #858585;
+    cursor: pointer;
 }
 
 .modal__button--submit {
@@ -425,18 +425,28 @@ delete the code above!!!
 }
 
 /* ps;gkjhbdrvf;olirkejbhgjnmvcs/ ps;gkjhbdrvf;olirkejbhgjnmvcs/ ps;gkjhbdrvf;olirkejbhgjnmvcs/ ps;gkjhbdrvf;olirkejbhgjnmv */
-.temperature-menu-section__item--range {
+.menu-section__item--range {
     -webkit-appearance: none;
     width: 100%;
     height: 60px;
     margin: 0;
     border: none;
     border-radius: 30px;
-    background-image: linear-gradient(90deg, #068FFF 2%, #FFD800 51%, #F76B1C 100%);
     outline: none;
+    cursor: pointer;
 }
 
-.menu-section__item--range::-moz-range-track {
+.temperature-menu-section__item--range {
+    background-image: linear-gradient(90deg, #068FFF 2%, #FFD800 51%, #F76B1C 100%);
+}
+
+.lights-menu-section__item--range {
+    background-image: linear-gradient(85deg, #FFE682 2%, #FF9E00 98%);
+}
+
+.menu-section__item--range::-moz-range-track,
+.menu-section__item--range::-ms-fill-lower,
+.menu-section__item--range::-ms-fill-upper  {
     background: transparent;
     /* border: inherit;*/
 }
@@ -447,56 +457,55 @@ delete the code above!!!
     background: transparent;
 }
 
-.menu-section__item--range::-ms-fill-lower,
-.menu-section__item--range::-ms-fill-upper {
-    background: transparent;
-}
 
 .menu-section__item--range::-ms-tooltip {
     display: none;
 }
 
-
 .menu-section__item--range::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 60px;
-    height: 60px;
+    width: 67px;
+    height: 67px;
     border-radius: 50%;
     background-color: transparent;
-    border: 3px solid rgba(51,51,51,0.10);
     border: 4px solid #FFFFFF;
-    box-shadow: 0 1px 10px -7px rgba(0,0,0,0.50);
+    box-shadow: inset 0px 0px 0px 3px rgba(230, 177, 93, 0.904);
+    z-index: 5000;
 }
+
 .menu-section__item--range::-moz-range-thumb {
-    width: 60px;
-    height: 60px;
+    width: 67px;
+    height: 67px;
     border-radius: 50%;
     background-color: transparent;
-    border: 3px solid rgba(51,51,51,0.10);
     border: 4px solid #FFFFFF;
-    box-shadow: 0 1px 10px -7px rgba(0,0,0,0.50);}
+    box-shadow: inset 0px 0px 0px 3px rgba(230, 177, 93, 0.904);
+}
 
 .menu-section__item--range::-ms-thumb {
-    width: 60px;
-    height: 60px;
+    width: 67px;
+    height: 67px;
     border-radius: 50%;
     background-color: transparent;
-    border: 3px solid rgba(51,51,51,0.10);
     border: 4px solid #FFFFFF;
-    box-shadow: 0 1px 10px -7px rgba(0,0,0,0.50);
+    box-shadow: inset 0px 0px 0px 3px rgba(230, 177, 93, 0.904);
 }
 
-
-.lights-menu-section__item--range {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 60px;
-    margin: 0;
-    border: none;
-    border-radius: 30px;
-    background-image: linear-gradient(85deg, #FFE682 2%, #FF9E00 98%);
-    outline: none;
+.temperature-range__extremes {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 90px);
+    top: 168px;
+    left: 45px; 
+    height: 0;
 }
+
+.temperature-range__extreme {
+    font-size: 18px;
+    color: #FFFFFF;
+}
+
 
 /* ps;gkjhbdrvf;olirkejbhgjnmvcs/ ps;gkjhbdrvf;olirkejbhgjnmvcs/ ps;gkjhbdrvf;olirkejbhgjnmvcs/ */
 .overlay--hidden {
@@ -616,5 +625,12 @@ delete the code above!!!
     .menu-section__item--range {
         width: 336px;
         transform: rotate(270deg) translate(-135px, -20px);
+    }
+    .temperature-range__extremes {
+        flex-direction: column;
+        height: 308px;
+        width: 0;
+        top: 142px;
+        left: 153px;
     }
 }
