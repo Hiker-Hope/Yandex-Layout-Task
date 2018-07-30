@@ -13,6 +13,10 @@ function popUpHide() {
         } 
 }
 
+function sandwichMenu() {
+    document.querySelector('.header-menu').classList.toggle('header-menu--hidden');
+}
+
 function doSomething() {
     const lightTiles = document.querySelectorAll('.lightBulb')
         for (i=0; i< lightTiles.length; i++) { 
@@ -42,6 +46,11 @@ function doSomething() {
     closeButton.addEventListener('click', function(){
         popUpHide()
     })
+
+    const sandwichMenuBtn = document.querySelector('.header-menu__icon')
+    sandwichMenuBtn.addEventListener('click', function(){
+        sandwichMenu()
+    })
 }
 
 if (document.readyState === "loading") {
@@ -49,3 +58,4 @@ if (document.readyState === "loading") {
 } else {  // `DOMContentLoaded` already fired
     doSomething();
 }
+
