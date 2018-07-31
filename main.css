@@ -22,6 +22,11 @@
     --margin-big: 29px;
     --margin-medium: 26px;
     --margin-small: 15px;
+    --text-grand: 27px;
+    --text-big: 18px;
+    --text-medium: 14px;
+    --text-small: 12px;
+    --text-dark: #333333;
 }
 
 body{
@@ -36,16 +41,26 @@ body{
     color: #858585;
 }
 
-/* common styles for headings */
-
-.heading-text {
+.emphasized-text {
     font-family: Arial-BoldMT;
-    color: #333333;
+    color: var(--text-dark);
 }
 
-/* ^^^ common styles for headings ^^^ */
+.text--output {
+    font-size: 36px;
+}
 
-/* common styles for tiles */
+.text--main-title {
+    font-size: var(--text-big);
+}
+
+.text--element-title {
+    font-size: var(--text-medium);
+}
+
+.text--content {
+    font-size: var(--text-small);
+}
 
 .item{
     background: #F7F7F7;
@@ -69,16 +84,9 @@ body{
     height: 24px;
 }
 
-.item__heading {
-    font-size: 14px;
-}
-
 .item__text {
-    font-size: 12px;
     margin-top: 4px;
 }
-
-/*^^^ common styles for tiles ^^^*/
 
 .header {
     height: 92px;
@@ -95,7 +103,7 @@ body{
     background: url("guide/assets/Яндекс Дом.svg/") no-repeat ;
     width: 108px;
     height: 27px;
-    margin-right: var(--margin-medium);
+    margin-right: 52px;
 }
 
 .header-menu__icon {
@@ -103,13 +111,13 @@ body{
     width: 16px;
 }
 
-.header-menu__item{
+.header-menu__item {
     display: inline-block;
-}
-
-.header__menu-link {
     opacity: 0.6;
     font-size: 16px;
+}
+
+.header-menu__item + .header-menu__item {
     margin-left: var(--margin-medium);
 }
 
@@ -128,32 +136,6 @@ body{
     row-gap: var(--margin-big);
 }
 
-/*
--
--
-delete the code below!!!
--
--
- */
-
-section {
-    border-radius: 15px;
-    border: 1.5px dashed #FFD93E;
-}
-
-/*
--
--
-delete the code above!!!
--
--
- */
-
- /*//////////////////////////////////////////////////////////*/
-.main__section-title {
-    font-size: 18px;
-}
-
 .section-main__container {
     display: flex;
     justify-content: space-between;
@@ -163,7 +145,10 @@ delete the code above!!!
     background: url("guide/assets/bg@2x.png");
     background-size: cover;
     border-radius: 20px;
-    margin-top: var(--padding-small);
+}
+
+.main__section-title {
+    margin-bottom: 20px;
 }
 
 .section-main__info {
@@ -173,18 +158,16 @@ delete the code above!!!
 }
 
 .section-main__info-greeting {
-    font-size: 27px;
+    font-size: var(--text-grand);
     margin-bottom: 5px;
 }
 
 .section-main__info-general {
-    font-size: 14px;
-    color:#333333;
+    color: var(--text-dark);
 }
 
 .section-main__info-weather {
     display: flex;
-    justify-content: flex-start;
     margin-top: 25px;
 }
 
@@ -193,11 +176,26 @@ delete the code above!!!
 }
 
 .section-main__info-temp--text {
-    font-size: 14px;
+    margin-bottom: 5px;
 }
 
-.section-main__info-temp--deg {
-    font-size: 36px;
+.with-icon {
+    position: relative;
+}
+
+.with-icon--drizzle::after {
+    background: url('guide/assets/cloud-drizzle@2x.png') no-repeat center;
+}
+
+.with-icon::after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    content: '';
+    width: 26px;
+    height: 26px;
+    background-size: cover;
+    margin-left: 5px;
 }
 
 .section-main__info-temp-home {
@@ -208,13 +206,14 @@ delete the code above!!!
     margin-right: 5px;
 }
 
+
 .section-main__weather-icon {
     width: 26px;
     height: 26px;
     margin-top: 27px;
 }
 
-.section-main__scheduled-list {
+.scheduled-list {
     display: grid;
     grid-auto-rows: 126px;
     grid-template-columns: 206px;
@@ -222,10 +221,7 @@ delete the code above!!!
     overflow: hidden;
 }
 
-/*//////////////////////////////////////////////////////////*/
-
-.section-main__selected-list {
-    padding-top: var(--padding-small);
+.selected-list {
     display: grid;
     grid-template-rows: 106px 106px 106px;
     grid-template-columns: repeat(auto-fill, minmax(206px, 206px));
@@ -233,15 +229,12 @@ delete the code above!!!
     overflow: hidden;
 }
 
-.section-main__selected-list-item {
+.selected-list-item {
     height: 100px;
 }
 
-/*//////////////////////////////////////////////////////////*/
-
-.main__section--devices {
+.devices-section {
     grid-column: 1 / -1;
-    margin-bottom: 6px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -249,13 +242,17 @@ delete the code above!!!
 
 .section--devices__head {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     flex-wrap: wrap;
 }
 
 .section--devices__heading {
     display: inline;
-    margin-right: 13px;
+    margin: 0 13px 0 0;
+}
+
+.section--devices__menu {
+    margin-bottom: 20px;
 }
 
 .section--devices__menu--mobile {
@@ -266,6 +263,7 @@ delete the code above!!!
     display: flex;
     border: none;
 }
+
 .modal__menu {
     margin: 20px 0 25px;
 }
@@ -289,22 +287,20 @@ delete the code above!!!
     background: #FFD93E;
 }
 
-.section--devices__devices--list {
+.devices--list {
     display: grid;
     grid-template-columns: repeat(auto-fill, 206px);
     grid-auto-flow: column;
     grid-gap: 20px;
     overflow: hidden;
-    padding-top: var(--padding-small);
 }
-
-/*//////////////////////////////////////////////////////////*/
 
 .footer {
     height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 3px;
 }
 
 .footer__links {
@@ -314,25 +310,13 @@ delete the code above!!!
     flex-wrap: wrap;
 }
 .footer__link {
-    font-size: 12px;
-    color: #858585;
     margin-right: 14px;
+    color: #858585;
 }
 
 .footer__link:hover {
-    color: #333333;
+    color: var(--text-dark);
 }
-
-.footer__link:active {
-    color: #333333;
-}
-
-.footer__copyright-text {
-    font-size: 12px;
-}
-
-
-/* **************** modal styles **************** */
 
 .overlay {
     position: fixed;
@@ -346,28 +330,17 @@ delete the code above!!!
     z-index: 2;
 }
 
-.overlay.popup {
-    visibility: visible;
-    z-index: 100;
-}
 
 .modal-container {
     display: grid;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(0);
+    transform:  translate(-50%, -50%) scale(1);
     grid-template-columns: 307px 307px;
     grid-gap: 16px;
     row-gap: 20px;
     transition: all 350ms ease-in-out; 
-}
-
-.modal-container.popup {
-    visibility: visible;
-    z-index: 200;
-    opacity: 1;
-    transform:  translate(-50%, -50%) scale(1);
 }
 
 .modal__item {
@@ -377,18 +350,11 @@ delete the code above!!!
 
 .modal__main {
     grid-column: 1 / -1;
-}
-
-.modal__main {
     padding: 25px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 .modal-item__button {
     height: 60px;
-    font-size: 18px;
     border: none;
     outline: none;
     cursor: pointer;
@@ -405,13 +371,12 @@ delete the code above!!!
 }
 
 .modal__main--heading {
-    font-size: 27px;
+    font-size: var(--text-grand);
     margin-bottom: 6px;
 }
 
 .modal__main--state-text{
-    font-size: 14px;
-    color: #333333;
+    color: var(--text-dark);
 }
 
 .modal__main--data {
@@ -419,7 +384,6 @@ delete the code above!!!
 }
 
 .modal__main--data-text {
-    font-size: 36px;
     margin-right: 6px;
 }
 
@@ -432,7 +396,6 @@ delete the code above!!!
     margin: 25px 0;
 }
 
-/* ps;gkjhbdrvf;olirkejbhgjnmvcs/ ps;gkjhbdrvf;olirkejbhgjnmvcs/ ps;gkjhbdrvf;olirkejbhgjnmvcs/ ps;gkjhbdrvf;olirkejbhgjnmv */
 .menu-section__item--range {
     -webkit-appearance: none;
     width: 100%;
@@ -461,7 +424,7 @@ delete the code above!!!
 
 .menu-section__item--range::-ms-track {
     border: inherit;
-    color: transparent; /* don't drawn vertical reference line */
+    color: transparent; 
     background: transparent;
 }
 
@@ -478,7 +441,6 @@ delete the code above!!!
     background-color: transparent;
     border: 4px solid #FFFFFF;
     box-shadow: inset 0px 0px 0px 3px rgba(230, 177, 93, 0.904);
-    z-index: 5000;
 }
 
 .menu-section__item--range::-moz-range-thumb {
@@ -510,13 +472,10 @@ delete the code above!!!
 }
 
 .temperature-range__extreme {
-    font-size: 18px;
     color: #FFFFFF;
     white-space: nowrap;
 }
 
-
-/* ps;gkjhbdrvf;olirkejbhgjnmvcs/ ps;gkjhbdrvf;olirkejbhgjnmvcs/ ps;gkjhbdrvf;olirkejbhgjnmvcs/ */
 .overlay--hidden {
     visibility: hidden;
     opacity: 0;
@@ -524,19 +483,16 @@ delete the code above!!!
 }
 
 .modal-container--hidden{
-    visibility: hidden;
-    opacity: 0;
-    z-index: -1;
+    will-change: auto;
+    transform: translate(-50%, -50%) scale(0);
 }
 
 .hidden {
     display: none;
 }
 
-/* **************** modal styles **************** */
-
 @media screen and (max-width: 1444px) {
-    .section-main__selected-list {
+    .selected-list {
         grid-auto-flow: column;
         }
 }
@@ -546,23 +502,23 @@ delete the code above!!!
         grid-template-columns: repeat(auto-fit, minmax(335px, 632px));
     }
 
-    .section-main__scheduled-list {
+    .scheduled-list {
         grid-auto-flow: column;
         overflow: scroll;
     }
 
-    .section-main__selected-list {
+    .selected-list {
         grid-template-rows: 106px;
         grid-auto-flow: column;
         overflow: scroll;
     }
 
-    .section--devices__devices--list {
+    .devices--list {
         overflow: scroll;
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 705px) {
     body {
         padding: 0 var(--padding-small);
     }
@@ -588,9 +544,7 @@ delete the code above!!!
     }
 
     .header__menu-link {
-        margin: 0;
-        font-size: 14px;
-        color: #333333;
+        font-size: var(--text-medium);
     }
 
      .header-menu--hidden {
@@ -604,26 +558,48 @@ delete the code above!!!
 
     .header-menu__item {
         display: block;
-        margin-top: 4px; 
         transform: translateX(0);
-        transition: transform 1s;       
+        transition: transform 1s;
+        margin-left: 0 !important;       
     }
 
     .header-menu__item:hover {
         transform: translateX(-12px);
     }
 
-    .header-menu__item:first-child {
-        margin-top: 0;        
+    .header-menu__item + .header-menu__item {
+        margin-top: 4px;        
     }
 
     .section-main__container {
         margin-top: 0;
     }
 
-    .main__section-title {
+    .section-main__title {
         display: none;
     }
+
+    .section-main__info-greeting {
+        font-size: var(--text-big);
+    }
+
+    .section-main__info-general {
+        font-size: var(--text-small);
+    }
+
+    .section-main__info-temp--text {
+        font-size: var(--text-small);
+    }
+
+    .with-icon::after {
+        width: 18px;
+        height: 18px;
+    }
+
+    .text--output {
+        font-size: 24px;
+    }
+
     .footer__links {
         justify-content: flex-start;
         flex-wrap: wrap;
@@ -644,6 +620,7 @@ delete the code above!!!
         background: #FFD93E;
         border: none;
         border-radius: 20px;
+        margin-bottom: 20px;
         -webkit-appearance: none;
         -moz-appearance: none;
     }
@@ -661,21 +638,16 @@ delete the code above!!!
         display: none;
     }
 
-    .modal__main--heading {
-        font-size: 18px;
-        margin-bottom: 6px;
-    }
-
-    .modal__main--state-text{
-        font-size: 12px;
-        color: #333333;
+    .modal__main--state-text {
+        font-size: var(--text-small);
+        color: var(--text-dark);
     }
 
     .modal__menu{
         overflow: scroll;
         width: 314px;
     }
-    .modal__main--settings-menu-item--text {
+    .modal-settings-menu-text {
         font-family: ArialMT;
     }
 
