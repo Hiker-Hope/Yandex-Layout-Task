@@ -12,9 +12,7 @@
     <script src="bundle.js" defer></script>
 
     <header class="header">
-        <div class="header__logo">
-            <!-- svg и через бэкграунд и там две ссылки -->
-        </div>
+        <div class="header__logo"></div>
 
         <nav class="header-menu-container">
             <img class="header-menu__icon" src="guide/assets/icon_list_m@2x.png">
@@ -32,7 +30,7 @@
         </nav>
 
     </header>
-    
+
     <main class="main">
         <section class="main__section--main">
 
@@ -281,12 +279,11 @@
 
                 <fieldset class="modal__main--range-slider">
                         <input class="menu-section__item--range  temperature-menu-section__item--range" type="range" min="-10" max="30" id="range-temperature" step="1"/>
-                </fieldset>
-                <!-- Внутрь слайдера, слайдеру релатив, без ширины, без высоты, поинтер-ивенст ноне -->
-                <div class="temperature-range__extremes"> 
-                    <span class="emphasized-text temperature-range__extreme temperature-range__extreme-min text--main-title">–10</span>
-                    <span class="emphasized-text temperature-range__extreme temperature-range__extreme-max text--main-title">+30</span>
-                </div>
+                        <div class="temperature-range__extremes range__extremes"> 
+                            <p class="emphasized-text temperature-range__extreme text--main-title">–10</p>
+                            <p class="emphasized-text temperature-range__extreme text--main-title">+30</p>
+                        </div>
+                </fieldset>                
  
             </div>
 
@@ -341,6 +338,10 @@
 
                 <fieldset class="modal__main--range-slider">
                         <input class="menu-section__item--range lights-menu-section__item--range" type="range" min="-10" max="30" id="range-lights" step="1"/>
+                        <div class="light-range__extremes range__extremes"> 
+                                <img class="lights-range__extreme" src="guide/assets/icon_sun_min@2x.png">
+                                <img class="lights-range__extreme" src="guide/assets/icon_sun_max@2x.png">
+                        </div>
                 </fieldset>
             </div>
 

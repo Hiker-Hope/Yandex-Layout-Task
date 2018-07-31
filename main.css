@@ -98,11 +98,9 @@ body{
 }
 
 .header__logo {
-    /* Если что, потом разрежем на две
-    */
-    background: url("guide/assets/Яндекс Дом.svg/") no-repeat ;
-    width: 108px;
-    height: 27px;
+    background: url("guide/assets/Яндекс\ Дом.svg") no-repeat;
+    width: 114px;
+    height: 39px; 
     margin-right: 52px;
 }
 
@@ -396,6 +394,10 @@ body{
     margin: 25px 0;
 }
 
+.modal__main--range-slider {
+    position: relative;
+}
+
 .menu-section__item--range {
     -webkit-appearance: none;
     width: 100%;
@@ -461,14 +463,15 @@ body{
     box-shadow: inset 0px 0px 0px 3px rgba(230, 177, 93, 0.904);
 }
 
-.temperature-range__extremes {
+.range__extremes {
     position: absolute;
+    pointer-events: none;
     display: flex;
     justify-content: space-between;
-    width: calc(100% - 90px);
-    top: 168px;
-    left: 45px; 
-    height: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+    left: 20px;
 }
 
 .temperature-range__extreme {
@@ -476,6 +479,15 @@ body{
     white-space: nowrap;
 }
 
+.light-range__extremes {
+    right: 15px;
+    left: 15px;
+}
+
+.lights-range__extreme {
+    width: 36px;
+    height: 36px;
+}
 .overlay--hidden {
     visibility: hidden;
     opacity: 0;
@@ -660,11 +672,18 @@ body{
         transform: rotate(270deg) translate(-135px, -20px);
     }
 
-    .temperature-range__extremes {
+    .range__extremes {
         flex-direction: column-reverse;
-        height: 308px;
-        width: 0;
-        top: 142px;
-        left: 153px;
+        top: 15px;
+        bottom: 18px;
+        left: 133px;
+        right: 0;
+        transform: none;
+    }
+
+    .light-range__extremes {
+        top: 10px;
+        bottom: 13px;
+        left: 130px;
     }
 }
