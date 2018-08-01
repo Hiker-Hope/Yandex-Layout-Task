@@ -18,13 +18,13 @@
             <img class="header-menu__icon" src="guide/assets/icon_list_m@2x.png">
             <ul class="header-menu header-menu--hidden">
                 <li class="header-menu__item">
-                    <a class="header__menu-link header__menu-link--main emphasized-text" href=#>Сводка</a>
+                    <a class="header__menu-link emphasized-text" href=#>Сводка</a>
                 </li>
                 <li class="header-menu__item">
-                    <a class="header__menu-link header__menu-link--devices emphasized-text" href=#>Устройства</a>
+                    <a class="header__menu-link emphasized-text" href=#>Устройства</a>
                 </li>
                 <li class="header-menu__item">
-                    <a class="header__menu-link header__menu-link--selected emphasized-text" href=#>Сценарии</a>
+                    <a class="header__menu-link emphasized-text" href=#>Сценарии</a>
                 </li>
             </ul>
         </nav>
@@ -34,7 +34,7 @@
     <main class="main">
         <section class="main__section--main">
 
-            <h3 class="main__section-title section-main__title emphasized-text text--main-title">Главное</h3>
+            <h3 class="section-main__title emphasized-text text--main-title">Главное</h3>
 
             <div class="section-main__container">
 
@@ -79,7 +79,15 @@
         </section>
 
         <section class="main__section--selected">
-                <h3 class="main__section-title emphasized-text text--main-title">Избранные сценарии</h3>
+
+            <div class="section__head">
+                <h3 class="emphasized-text text--main-title">Избранные сценарии</h3>
+                
+                <div class="paginator-container selected__paginator">
+                        <button type="button" class="paginator selected__paginator--back paginator--back"></button>
+                        <button type="button" class="paginator selected__paginator--forward paginator--forward"></button> 
+                </div>
+            </div>
 
                 <div class="selected-list">
 
@@ -125,48 +133,58 @@
 
         <section class="devices-section">
 
-            <div class="section--devices__head">
+            <div class="section__head">
 
-                <h3 class="main__section-title section--devices__heading emphasized-text text--main-title">Избранные устройства</h3>
+                <div class="devices__head--menu">
+                     <h3 class="devices-section__heading emphasized-text text--main-title">Избранные устройства</h3>
 
-                <fieldset>
-                    <div class="section--devices__menu menu-section">
+                    <fieldset>
+                        <div class="devices-section__menu menu-section">
 
-                    <input class="menu-section__item all-devices" type="radio" name="devices" value="all-devices" id="all-devices" checked>
-                        <label class="emphasized-text menu-section__item--label" for="all-devices">Все</label>
+                        <input class="menu-section__item all-devices" type="radio" name="devices" value="all-devices" id="all-devices" checked>
+                            <label class="emphasized-text menu-item__label" for="all-devices">Все</label>
 
-                    <input class="menu-section__item kitchen" type="radio" name="devices" value="kitchen" id="kitchen">
-                        <label class="emphasized-text menu-section__item--label" for="kitchen">Кухня</label>
+                        <input class="menu-section__item kitchen" type="radio" name="devices" value="kitchen" id="kitchen">
+                            <label class="emphasized-text menu-item__label" for="kitchen">Кухня</label>
 
-                    <input class="menu-section__item living-room" type="radio" name="devices" value="living-room" id="living-room">
-                        <label class="emphasized-text menu-section__item--label" for="living-room">Зал</label>
+                        <input class="menu-section__item living-room" type="radio" name="devices" value="living-room" id="living-room">
+                            <label class="emphasized-text menu-item__label" for="living-room">Зал</label>
 
-                    <input class="menu-section__item bulbs" type="radio" name="devices" value="lights" id="lights">
-                        <label class="emphasized-text menu-section__item--label" for="lights">Лампочки</label>
+                        <input class="menu-section__item bulbs" type="radio" name="devices" value="lights" id="lights">
+                            <label class="emphasized-text menu-item__label" for="lights">Лампочки</label>
 
-                    <input class="menu-section__item cameras" type="radio" name="devices" value="cameras" id="cameras">
-                        <label class="emphasized-text menu-section__item--label" for="cameras">Камеры</label>
-                    </div>
-                </fieldset>
+                        <input class="menu-section__item cameras" type="radio" name="devices" value="cameras" id="cameras">
+                            <label class="emphasized-text menu-item__label" for="cameras">Камеры</label>
+                        </div>
+                    </fieldset>
 
-                <select class="section--devices__menu--mobile emphasized-text">
+                    <select class="devices-section__menu--mobile emphasized-text">
 
-                        <option class="emphasized-text all-devices" value="all-devices" selected>
-                            Все</option>
+                            <option class="emphasized-text all-devices" value="all-devices" selected>
+                                Все</option>
 
-                        <option class="emphasized-text kitchen" value="kitchen">
-                            Кухня</option>
+                            <option class="emphasized-text kitchen" value="kitchen">
+                                Кухня</option>
 
-                        <option class="emphasized-text living-room" value="living-room">
-                            Зал</option>
+                            <option class="emphasized-text living-room" value="living-room">
+                                Зал</option>
 
-                        <option class="emphasized-text bulbs" value="lights">
-                           Лампочки</option>
+                            <option class="emphasized-text bulbs" value="lights">
+                            Лампочки</option>
 
-                        <option class="emphasized-text cameras" value="cameras">
-                            Камеры</option>
+                            <option class="emphasized-text cameras" value="cameras">
+                                Камеры</option>
 
-                </select>
+                    </select>
+                </div>
+               
+
+                <div class="paginator-container devices__paginator">
+                    <button type="button" class="paginator devices__paginator--back paginator--back"></button>
+                    <button type="button" class="paginator devices__paginator--forward paginator--forward"></button> 
+                </div>
+               
+
             </div>
 
 
@@ -248,15 +266,14 @@
         <div class="modal-container modal-container--hidden">
 
             <div class="modal__main modal__item hidden" id="home-temperature" >
-                <!-- не модификатором -->
-                <div class="modal__main--head">
-                    <div class="modal__main--text">
-                        <h3 class="modal__main--heading emphasized-text text--main-title">Elgato Eve Degree Connected</h3>
+                <div class="modal__head">
+                    <div class="modal__text">
+                        <h3 class="modal__heading emphasized-text text--main-title">Elgato Eve Degree Connected</h3>
                         <p class="modal__main--state-text text--element-title ">Включено</p>
                     </div>
-                    <div class="modal__main--data">
-                        <h2 class="modal__main--data-text emphasized-text text--output">+89</h2>
-                        <img class="modal__main--data-icon" src="guide/assets/icon_temperature_2@2x.png">
+                    <div class="modal__data">
+                        <h2 class="modal__data-text emphasized-text text--output">+89</h2>
+                        <img class="modal__data-icon" src="guide/assets/icon_temperature_2@2x.png">
                     </div>
                 </div>
 
@@ -264,16 +281,16 @@
                     <div class="menu-section modal__menu">
 
                         <input  class="menu-section__item" type="radio" name="menu-temp" value="manually" id="manually-temp" checked>
-                        <label  class="modal-settings-menu-text menu-section__item--label emphasized-text" for="manually-temp">Вручную</label>
+                        <label  class="modal-settings-menu-text menu-item__label emphasized-text" for="manually-temp">Вручную</label>
 
                         <input  class="menu-section__item" type="radio" name="menu-temp" value="cold" id="cold">
-                        <label  class="modal-settings-menu-text menu-section__item--label emphasized-text" for="cold">Холодно</label>
+                        <label  class="modal-settings-menu-text menu-item__label emphasized-text" for="cold">Холодно</label>
 
                         <input  class="menu-section__item" type="radio" name="menu-temp" value="warm" id="warm">
-                        <label  class="modal-settings-menu-text menu-section__item--label emphasized-text" for="warm">Тепло</label>
+                        <label  class="modal-settings-menu-text menu-item__label emphasized-text" for="warm">Тепло</label>
 
                         <input  class="menu-section__item" type="radio" name="menu-temp" value="hot" id="hot">
-                        <label  class="modal-settings-menu-text menu-section__item--label emphasized-text" for="hot">Жарко</label>
+                        <label  class="modal-settings-menu-text menu-item__label emphasized-text" for="hot">Жарко</label>
                     </div>
                 </fieldset>
 
@@ -290,14 +307,14 @@
             <!-- SECOND MODAL -->
             <div class="modal__main modal__item hidden" id="home-floor">
 
-                <div class="modal__main--head">
-                    <div class="modal__main--text">
-                        <h3 class="modal__main--heading emphasized-text text--main-title">Xiaomi Warm Floor</h3>
+                <div class="modal__head">
+                    <div class="modal__text">
+                        <h3 class="modal__heading emphasized-text text--main-title">Xiaomi Warm Floor</h3>
                         <p class="modal__main--state-text text--element-title">Включено</p>
                     </div>
-                    <div class="modal__main--data">
-                        <h2 class="modal__main--data-text emphasized-text">+9</h2>
-                        <img class="modal__main--data-icon" src="guide/assets/icon_temperature_2@2x.png">
+                    <div class="modal__data">
+                        <h2 class="mmodal__data-text emphasized-text text--output">+9</h2>
+                        <img class="modal__data-icon" src="guide/assets/icon_temperature_2@2x.png">
                     </div>
                 </div>
 
@@ -310,29 +327,29 @@
 
             <div class="modal__main modal__item hidden" id="home-lights">
 
-                <div class="modal__main--head">
-                    <div class="modal__main--text">
-                        <h3 class="modal__main--heading emphasized-text text--main-title">Xiaomi Yeelight LED Smart Bulb</h3>
+                <div class="modal__head">
+                    <div class="modal__text">
+                        <h3 class="modal__heading emphasized-text text--main-title">Xiaomi Yeelight LED Smart Bulb</h3>
                         <p class="modal__main--state-text text--element-title">Включится в 17:00</p>
                     </div>
-                    <div class="modal__main--data">
-                        <img class="modal__main--data-icon" src="guide/assets/icon_sun@2x.png">
+                    <div class="modal__data">
+                        <img class="modal__data-icon" src="guide/assets/icon_sun@2x.png">
                     </div>
                 </div>
 
                 <fieldset>
                     <div class="menu-section modal__menu">
                         <input  class="menu-section__item" type="radio" name="menu-bulb" value="manually" id="manually-lights" checked>
-                        <label  class="modal-settings-menu-text menu-section__item--label emphasized-text" for="manually-lights">Вручную</label>
+                        <label  class="modal-settings-menu-text menu-item__label emphasized-text" for="manually-lights">Вручную</label>
 
                         <input  class="menu-section__item" type="radio" name="menu-bulb" value="daylight" id="daylight">
-                        <label  class="modal-settings-menu-text menu-section__item--label emphasized-text" for="daylight">Дневной свет</label>
+                        <label  class="modal-settings-menu-text menu-item__label emphasized-text" for="daylight">Дневной свет</label>
 
                         <input  class="menu-section__item" type="radio" name="menu-bulb" value="dusk" id="dusk">
-                        <label  class="modal-settings-menu-text menu-section__item--label emphasized-text" for="dusk">Вечерний свет</label>
+                        <label  class="modal-settings-menu-text menu-item__label emphasized-text" for="dusk">Вечерний свет</label>
 
                         <input  class="menu-section__item" type="radio" name="menu-bulb" value="dawn" id="dawn">
-                        <label  class="modal-settings-menu-text menu-section__item--label emphasized-text" for="dawn">Рассвет</label>
+                        <label  class="modal-settings-menu-text menu-item__label emphasized-text" for="dawn">Рассвет</label>
                     </div>
                 </fieldset>
 

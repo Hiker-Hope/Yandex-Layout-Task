@@ -134,6 +134,10 @@ body{
     row-gap: var(--margin-big);
 }
 
+.section-main__title {
+    margin-bottom: 20px;
+}
+
 .section-main__container {
     display: flex;
     justify-content: space-between;
@@ -143,10 +147,6 @@ body{
     background: url("guide/assets/bg@2x.png");
     background-size: cover;
     border-radius: 20px;
-}
-
-.main__section-title {
-    margin-bottom: 20px;
 }
 
 .section-main__info {
@@ -238,22 +238,12 @@ body{
     justify-content: flex-start;
 }
 
-.section--devices__head {
-    display: flex;
-    align-items: baseline;
-    flex-wrap: wrap;
-}
-
-.section--devices__heading {
+.devices-section__heading {
     display: inline;
     margin: 0 13px 0 0;
 }
 
-.section--devices__menu {
-    margin-bottom: 20px;
-}
-
-.section--devices__menu--mobile {
+.devices-section__menu--mobile {
     display: none;
 }
 
@@ -270,7 +260,7 @@ body{
     display: none;
 }
 
-.menu-section__item--label{
+.menu-item__label{
     background: #F0F0F0;
     padding: 8px 15px;
     border-radius: 20px;
@@ -318,14 +308,14 @@ body{
 
 .overlay {
     position: fixed;
-    width: 100vw;
-    height: 100vh;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-color:  rgba(51,51,51,0.50);
     z-index: 2;
+    transition: all 350ms ease-in-out;
+    transform:  scale(1);
 }
 
 
@@ -362,13 +352,13 @@ body{
     background: #FFD93E;
 }
 
-.modal__main--head {
+.modal__head {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.modal__main--heading {
+.modal__heading {
     font-size: var(--text-grand);
     margin-bottom: 6px;
 }
@@ -377,15 +367,15 @@ body{
     color: var(--text-dark);
 }
 
-.modal__main--data {
+.modal__data {
     display: flex;
 }
 
-.modal__main--data-text {
+.modal__data-text {
     margin-right: 6px;
 }
 
-.modal__main--data-icon {
+.modal__data-icon {
     height: 42px;
     width: 42px;
 }
@@ -501,6 +491,36 @@ body{
 
 .hidden {
     display: none;
+}
+
+.section__head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.devices__head--menu {
+    display: flex;
+    align-items: baseline;
+}
+
+.paginator-container {
+    display: flex;
+    width: 45px;
+    justify-content: flex-end;
+}
+
+.paginator {
+    width: 15px;
+    height: 16px;
+    border: none;
+    outline: none;
+    background: url('guide/assets/Icons/Arrow_Right/M-Copy@2x.png') no-repeat ;
+    background-size: contain;
+}
+
+.paginator--forward {
+    transform: rotate(180deg);
 }
 
 @media screen and (max-width: 1444px) {
@@ -621,11 +641,11 @@ body{
         margin-right: 16px;
     }
 
-    .section--devices__menu {
+    .devices-section__menu {
         display: none;
     }
    
-    .section--devices__menu--mobile {
+    .devices-section__menu--mobile {
         display: inline;
         font-size: 13px;
         padding: 8px 15px;
@@ -646,7 +666,7 @@ body{
         padding: 20px;
     }
 
-    .modal__main--data {
+    .modal__data {
         display: none;
     }
 
