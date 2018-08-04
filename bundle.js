@@ -1,3 +1,5 @@
+// Modals
+
 function popUpShow(itemId) {
     document.querySelector('.overlay').classList.remove('overlay--hidden');
     document.querySelector('.modal-container').classList.remove('modal-container--hidden');
@@ -12,7 +14,6 @@ function popUpHide() {
             tileClose[i].classList.add('hidden')
         } 
 }
-
 
 const mainContainer = document.querySelector('.main')
 mainContainer.addEventListener('click', function({ target }) {
@@ -30,8 +31,31 @@ modal.addEventListener('click', function({ target }) {
         if (target.closest('.modal-item__button')) popUpHide()
 })
 
+// Hamburger menu
+
 const toggleMainMenuBtn = document.querySelector('.header-menu__icon')
 toggleMainMenuBtn.addEventListener('click', function() {
     document.querySelector('.header-menu').classList.toggle('header-menu--hidden')
 })
 
+// Pagination
+
+function turnPage(direction, container) {
+    let { offsetWidth, style: { transform: transformStyle } } = container
+    const translateValue = Number(transformStyle.replace(/[^\d.-]/g, ''));
+    const nextTranslateValue = direction == 'forward' ? translateValue - offsetWidth : translateValue + offsetWidth
+    
+    container.style.transform = `translateX(${nextTranslateValue}px)`
+}
+
+const paginatorContainerMain = document.querySelector('.main')
+paginatorContainerMain.addEventListener('click', function({ target }) {
+    if(!target) return;
+
+    const paginatorSection = target.closest('.main__section')
+    const itemToMove = paginatorSection.classList.contains('main__section--selected') ? document.querySelector('.selected-list') : document.querySelector('.devices-list')
+    const paginatorButton = target.closest('.paginator-button')
+
+    if (paginatorButton.classList.contains('paginator--forward')) {turnPage ('forward', itemToMove)}
+    if (paginatorButton.classList.contains('paginator--back')) {turnPage ('back', itemToMove)}
+})

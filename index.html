@@ -32,7 +32,7 @@
     </header>
 
     <main class="main">
-        <section class="main__section--main">
+        <section class="main__section main__section--main">
 
             <h3 class="section-main__title emphasized-text text--main-title">Главное</h3>
 
@@ -68,24 +68,32 @@
                     </div>
 
                     <div  class="item lightBulb">
-                            <img class="item__icon" src="guide/assets/icon_sun@2x.png">
-                            <div class="item__content">
-                                <h4 class="emphasized-text text--element-title">Xiaomi Yeelight LED Smart Bulb</h4>
-                                <p class="item__text text--content">Включится в 17:00</p>
-                            </div>
+                        <img class="item__icon" src="guide/assets/icon_sun@2x.png">
+                        <div class="item__content">
+                            <h4 class="emphasized-text text--element-title">Xiaomi Yeelight LED Smart Bulb</h4>
+                            <p class="item__text text--content">Включится в 17:00</p>
                         </div>
+                    </div>
+
+                    <div  class="item thermometer">
+                        <img class="item__icon" src="guide/assets/icon_temperature@2x.png">
+                        <div class="item__content">
+                            <h4 class="emphasized-text text--element-title">Philips Cooler</h4>
+                            <p class="item__text text--content">Начнет охлаждать в 16:30</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="main__section--selected">
+        <section class="main__section main__section--selected">
 
             <div class="section__head">
                 <h3 class="emphasized-text text--main-title">Избранные сценарии</h3>
                 
                 <div class="paginator-container selected__paginator">
-                        <button type="button" class="paginator selected__paginator--back paginator--back"></button>
-                        <button type="button" class="paginator selected__paginator--forward paginator--forward"></button> 
+                        <button type="button" class="paginator-button selected__paginator--back paginator--back"></button>
+                        <button type="button" class="paginator-button selected__paginator--forward paginator--forward"></button> 
                 </div>
             </div>
 
@@ -131,7 +139,7 @@
 
         </section>
 
-        <section class="devices-section">
+        <section class="main__section main__section--devices">
 
             <div class="section__head">
 
@@ -180,15 +188,15 @@
                
 
                 <div class="paginator-container devices__paginator">
-                    <button type="button" class="paginator devices__paginator--back paginator--back"></button>
-                    <button type="button" class="paginator devices__paginator--forward paginator--forward"></button> 
+                    <button type="button" class="paginator-button devices__paginator--back paginator--back"></button>
+                    <button type="button" class="paginator-button devices__paginator--forward paginator--forward"></button> 
                 </div>
                
 
             </div>
 
 
-            <div class="devices--list">
+            <div class="devices-list">
                     <div  class="item bulbs kitchen living-room all-devices lightBulb">
                             <img class="item__icon" src="guide/assets/icon_sun_2@2x.png">
                             <div class="item__content">
