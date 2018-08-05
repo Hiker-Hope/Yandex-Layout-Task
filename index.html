@@ -88,7 +88,7 @@
 
         <section class="main__section main__section--selected">
 
-            <div class="section__head">
+            <div class="section__head selected__head">
                 <h3 class="emphasized-text text--main-title">Избранные сценарии</h3>
                 
                 <div class="paginator-container selected__paginator">
@@ -97,7 +97,7 @@
                 </div>
             </div>
 
-                <div class="selected-list">
+            <div class="selected-list">
 
                         <div  class="selected-list-item item">
                             <img class="item__icon" src="guide/assets/icon_sun_2@2x.png">
@@ -135,13 +135,13 @@
                                 </div>
                         </div>
 
-                    </div>
+            </div>
 
         </section>
 
         <section class="main__section main__section--devices">
 
-            <div class="section__head">
+            <div class="section__head devices__head">
 
                 <div class="devices__head--menu">
                      <h3 class="devices-section__heading emphasized-text text--main-title">Избранные устройства</h3>
@@ -280,7 +280,7 @@
                         <p class="modal__main--state-text text--element-title ">Включено</p>
                     </div>
                     <div class="modal__data">
-                        <h2 class="modal__data-text emphasized-text text--output">+89</h2>
+                        <h2 class="modal__data-text emphasized-text text--output" id="temperature--output">+6</h2>
                         <img class="modal__data-icon" src="guide/assets/icon_temperature_2@2x.png">
                     </div>
                 </div>
@@ -303,7 +303,18 @@
                 </fieldset>
 
                 <fieldset class="modal__main--range-slider">
-                        <input class="menu-section__item--range  temperature-menu-section__item--range" type="range" min="-10" max="30" id="range-temperature" step="1"/>
+
+                        <input 
+                            class="menu-section__item--range  temperature-menu-section__item--range" 
+                            type="range" 
+                            min="-10" 
+                            max="30" 
+                            id="range-temperature" 
+                            value="0" 
+                            step="1" 
+                            oninput="nextValue(this.value)" 
+                        />
+
                         <div class="temperature-range__extremes range__extremes"> 
                             <p class="emphasized-text temperature-range__extreme text--main-title">–10</p>
                             <p class="emphasized-text temperature-range__extreme text--main-title">+30</p>
@@ -321,7 +332,7 @@
                         <p class="modal__main--state-text text--element-title">Включено</p>
                     </div>
                     <div class="modal__data">
-                        <h2 class="mmodal__data-text emphasized-text text--output">+9</h2>
+                        <h2 class="mmodal__data-text emphasized-text text--output" id="floor--output">+9</h2>
                         <img class="modal__data-icon" src="guide/assets/icon_temperature_2@2x.png">
                     </div>
                 </div>
@@ -362,7 +373,16 @@
                 </fieldset>
 
                 <fieldset class="modal__main--range-slider">
-                        <input class="menu-section__item--range lights-menu-section__item--range" type="range" min="-10" max="30" id="range-lights" step="1"/>
+                        <input 
+                            class="menu-section__item--range lights-menu-section__item--range" 
+                            type="range" 
+                            min="0" 
+                            max="30" 
+                            id="range-lights" 
+                            step="1"
+                            value="15"
+                        />
+
                         <div class="light-range__extremes range__extremes"> 
                                 <img class="lights-range__extreme" src="guide/assets/icon_sun_min@2x.png">
                                 <img class="lights-range__extreme" src="guide/assets/icon_sun_max@2x.png">

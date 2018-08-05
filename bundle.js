@@ -51,11 +51,23 @@ function turnPage(direction, container) {
 const paginatorContainerMain = document.querySelector('.main')
 paginatorContainerMain.addEventListener('click', function({ target }) {
     if(!target) return;
-
+                
     const paginatorSection = target.closest('.main__section')
-    const itemToMove = paginatorSection.classList.contains('main__section--selected') ? document.querySelector('.selected-list') : document.querySelector('.devices-list')
+    const itemToMove =
+    paginatorSection.classList.contains('main__section--selected') ?
+                            document.querySelector('.selected-list') :
+                            document.querySelector('.devices-list')
+                
     const paginatorButton = target.closest('.paginator-button')
-
-    if (paginatorButton.classList.contains('paginator--forward')) {turnPage ('forward', itemToMove)}
-    if (paginatorButton.classList.contains('paginator--back')) {turnPage ('back', itemToMove)}
+        if (paginatorButton.classList.contains('paginator--forward')) turnPage ('forward', itemToMove)
+        if (paginatorButton.classList.contains('paginator--back')) turnPage ('back', itemToMove)  
 })
+
+// Range sliders
+
+function nextValue(temperatureValue) {   
+    if (temperatureValue > 0) {
+        temperatureValue = '+' + temperatureValue;
+    }  
+        document.getElementById('temperature--output').textContent = temperatureValue;
+}
