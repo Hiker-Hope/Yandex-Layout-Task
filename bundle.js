@@ -87,5 +87,6 @@ modalContainer.addEventListener('click', function({ target }) {
         lightsSetting.value = menuButton.value
     } else { 
         temperatureSetting.value = menuButton.value
+        nextValue(temperatureSetting.value)
     } 
 })
