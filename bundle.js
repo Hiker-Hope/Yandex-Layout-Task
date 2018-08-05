@@ -71,3 +71,21 @@ function nextValue(temperatureValue) {
     }  
         document.getElementById('temperature--output').textContent = temperatureValue;
 }
+
+// Modal settings menu
+
+const modalContainer = document.querySelector('.modal-container')
+modalContainer.addEventListener('click', function({ target }) {
+    if(!target) return;
+
+    const modalMain = target.closest('.modal__main')
+    const menuButton = target.closest('.menu-section__item')
+    const lightsSetting = document.getElementById('range-lights')
+    const temperatureSetting = document.getElementById('range-temperature')    
+    
+    if (modalMain.classList.contains('modal--lights')) {
+        lightsSetting.value = menuButton.value
+    } else { 
+        temperatureSetting.value = menuButton.value
+    } 
+})
