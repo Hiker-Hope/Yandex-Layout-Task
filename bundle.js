@@ -38,6 +38,17 @@ toggleMainMenuBtn.addEventListener('click', function() {
     document.querySelector('.header-menu').classList.toggle('header-menu--hidden')
 })
 
+// Forward button disable
+
+function shouldEnableForward(parentSelector) {
+    const forward = document.querySelector(`${parentSelector} .paginator--forward`)
+    const container = document.querySelector(`${parentSelector} > div:nth-of-type(2)`)
+    forward.disabled = container.offsetWidth >= container.scrollWidth
+}
+
+shouldEnableForward('.main__section--selected')
+shouldEnableForward('.main__section--devices')
+
 // Pagination
 
 function turnPage(direction, container) {
@@ -53,16 +64,33 @@ function turnPage(direction, container) {
 const paginatorContainerMain = document.querySelector('.main')
 paginatorContainerMain.addEventListener('click', function({ target }) {
     if(!target) return;
-                
+
     const paginatorSection = target.closest('.main__section')
     const itemToMove =
-    paginatorSection.classList.contains('main__section--selected') ?
+        paginatorSection.classList.contains('main__section--selected') ?
                             document.querySelector('.selected-list') :
                             document.querySelector('.devices-list')
-                
+
     const paginatorButton = target.closest('.paginator-button')
-        if (paginatorButton.classList.contains('paginator--forward')) turnPage ('forward', itemToMove)
-        if (paginatorButton.classList.contains('paginator--back')) turnPage ('back', itemToMove)  
+        if (paginatorButton.classList.contains('paginator--forward')) {
+            const backButton = paginatorButton.parentNode.querySelector('.paginator--back')
+            backButton.disabled = false
+
+            turnPage ('forward', itemToMove) 
+            const { offsetWidth, scrollWidth, style: { transform: transformStyle } } = itemToMove
+            const translateValue = Number(transformStyle.replace(/[^\d.]/g, ''));
+            paginatorButton.disabled = translateValue + offsetWidth >= scrollWidth
+        }
+
+        if (paginatorButton.classList.contains('paginator--back')) {
+            const forwardButton = paginatorButton.parentNode.querySelector('.paginator--forward')
+            forwardButton.disabled = false
+
+            turnPage ('back', itemToMove)  
+            const { style: { transform: transformStyle } } = itemToMove
+            const translateValue = Number(transformStyle.replace(/[^\d.-]/g, ''));
+            paginatorButton.disabled = translateValue >= 0
+        }
 })
 
 // Temperature range slider
@@ -83,22 +111,13 @@ modalContainer.addEventListener('click', function({ target }) {
 
     const modalMain = target.closest('.modal__main')
     const menuButton = target.closest('.menu-section__item')
-    const lightsSetting = document.getElementById('range-lights')
-    const temperatureSetting = document.getElementById('range-temperature')    
+    const lightsSlider = document.getElementById('range-lights')
+    const temperatureSlider = document.getElementById('range-temperature')    
     
     if (modalMain.classList.contains('modal--lights')) {
-        lightsSetting.value = menuButton.value
+        lightsSlider.value = menuButton.value
     } else { 
-        temperatureSetting.value = menuButton.value
-        nextValue(temperatureSetting.value)
+        temperatureSlider.value = menuButton.value
+        getOutputValue(temperatureSlider.value)
     } 
 })
-
-// Devices filter 
-
-const devices = document.querySelectorAll('.devices-item')
-for (i=0; i<devices.length; i++) {
-    const device = devices[i]
-    console.log(device)
-}
-
