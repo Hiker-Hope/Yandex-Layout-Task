@@ -65,13 +65,14 @@ paginatorContainerMain.addEventListener('click', function({ target }) {
         if (paginatorButton.classList.contains('paginator--back')) turnPage ('back', itemToMove)  
 })
 
-// Range sliders
+// Temperature range slider
 
-function nextValue(temperatureValue) {   
-    if (temperatureValue > 0) {
-        temperatureValue = '+' + temperatureValue;
-    }  
-        document.getElementById('temperature--output').textContent = temperatureValue;
+function getOutputValue(temperatureValue) {   
+    const outputValue = 
+            (temperatureValue > 0) ? 
+            `+${temperatureValue}` :
+            temperatureValue 
+        document.getElementById('temperature--output').textContent = ou;
 }
 
 // Modal settings menu
