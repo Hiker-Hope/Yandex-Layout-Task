@@ -72,7 +72,7 @@ function getOutputValue(temperatureValue) {
             (temperatureValue > 0) ? 
             `+${temperatureValue}` :
             temperatureValue 
-        document.getElementById('temperature--output').textContent = ou;
+        document.getElementById('temperature--output').textContent = outputValue;
 }
 
 // Modal settings menu
@@ -93,3 +93,12 @@ modalContainer.addEventListener('click', function({ target }) {
         nextValue(temperatureSetting.value)
     } 
 })
+
+// Devices filter 
+
+const devices = document.querySelectorAll('.devices-item')
+for (i=0; i<devices.length; i++) {
+    const device = devices[i]
+    console.log(device)
+}
+
