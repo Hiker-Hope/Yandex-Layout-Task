@@ -222,7 +222,7 @@ body{
     max-height: 311px;
     overflow: scroll;
 }
- 
+
 .main__section--selected {
     overflow: hidden;
 }
@@ -253,11 +253,9 @@ body{
     display: inline;
     margin: 0 13px 0 0;
 }
-
 .devices-section__menu--mobile {
     display: none;
 }
-
 .menu-section {   
     display: flex;
     border: none;
@@ -592,7 +590,7 @@ body{
         font-size: var(--text-medium);
     }
 
-     .header-menu--hidden {
+    .header-menu--hidden {
         display: none;
     }
 
@@ -657,7 +655,6 @@ body{
     .devices-section__menu {
         display: none;
     }
-   
     .devices-section__menu--mobile {
         display: inline;
         font-size: 13px;

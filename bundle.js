@@ -43,7 +43,9 @@ toggleMainMenuBtn.addEventListener('click', function() {
 function turnPage(direction, container) {
     let { offsetWidth, style: { transform: transformStyle } } = container
     const translateValue = Number(transformStyle.replace(/[^\d.-]/g, ''));
-    const nextTranslateValue = direction == 'forward' ? translateValue - offsetWidth : translateValue + offsetWidth
+    const nextTranslateValue = direction == 'forward' ?
+                        translateValue - offsetWidth :
+                        translateValue + offsetWidth
     
     container.style.transform = `translateX(${nextTranslateValue}px)`
 }
