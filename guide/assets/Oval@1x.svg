@@ -4,7 +4,7 @@
     <title>Oval@2x</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <path d="M110.5,221 C171.527465,221 221,171.527465 221,110.5 C221,49.4725351 171.527465,0 110.5,0 C49.4725351,0 0,49.4725351 0,110.5 C0,171.527465 49.4725351,221 110.5,221 Z" id="path-1"></path>
+        <path d="M110.5,221 C171.527465,221 221,171.527465 221,110.5 C221,49.4725351 171.527465,0 110.5,0 C49.4725351,0 0,49.4725351 0,110.5 " id="path-1"></path>
         <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="221" height="221" fill="white">
             <use xlink:href="#path-1"></use>
         </mask>

@@ -1,46 +1,46 @@
-// // Devices menu - mobile
+// Devices menu - mobile
 
-// const toggleDevicesMenuButtons = document.querySelectorAll('.devices-menu-item__label')
-// for(i=0; i<toggleDevicesMenuButtons.length; i++) {
-//     const toggleDevicesMenuButton = toggleDevicesMenuButtons[i]
-//     toggleDevicesMenuButton.addEventListener('click', function() {
-//         toggleDevicesMenuButton.checked = true;
-//         document.querySelector('.devices-section__menu').classList.toggle('devices-section__menu--hidden')
-//     })
-// }
+const toggleDevicesMenuButtons = document.querySelectorAll('.devices-menu-item__label')
+for(i=0; i<toggleDevicesMenuButtons.length; i++) {
+    const toggleDevicesMenuButton = toggleDevicesMenuButtons[i]
+    toggleDevicesMenuButton.addEventListener('click', function() {
+        toggleDevicesMenuButton.checked = true;
+        document.querySelector('.devices-section__menu').classList.toggle('devices-section__menu--hidden')
+    })
+}
 
-// // Modals
+// Modals
 
-// function popUpShow(itemId) {
-//     document.querySelector('.overlay').classList.remove('overlay--hidden');
-//     document.querySelector('.modal-container').classList.remove('modal-container--hidden');
-//     document.getElementById(itemId).classList.remove('hidden')
-// }
+function popUpShow(itemId) {
+    document.querySelector('.overlay').classList.remove('overlay--hidden');
+    document.querySelector('.modal-container').classList.remove('modal-container--hidden');
+    document.getElementById(itemId).classList.remove('hidden')
+}
 
-// function popUpHide() {
-//     document.querySelector('.overlay').classList.add('overlay--hidden');
-//     document.querySelector('.modal-container').classList.add('modal-container--hidden');
-//     let tileClose = document.querySelectorAll('.modal__main')
-//         for (i=0; i<tileClose.length; i++) {
-//             tileClose[i].classList.add('hidden')
-//         } 
-// }
+function popUpHide() {
+    document.querySelector('.overlay').classList.add('overlay--hidden');
+    document.querySelector('.modal-container').classList.add('modal-container--hidden');
+    let tileClose = document.querySelectorAll('.modal__main')
+        for (i=0; i<tileClose.length; i++) {
+            tileClose[i].classList.add('hidden')
+        } 
+}
 
-// const mainContainer = document.querySelector('.main')
-// mainContainer.addEventListener('click', function({ target }) {
-//     if(!target) return
+const mainContainer = document.querySelector('.main')
+mainContainer.addEventListener('click', function({ target }) {
+    if(!target) return
 
-//     const item = target.closest('.item')
-//     if (item.classList.contains('lightBulb')) popUpShow('home-lights')
-//     if (item.classList.contains('thermometer')) popUpShow('home-temperature')
-//     if (item.classList.contains('floors')) popUpShow('home-floor')
-// })
+    const item = target.closest('.item')
+    if (item.classList.contains('lightBulb')) popUpShow('home-lights')
+    if (item.classList.contains('thermometer')) popUpShow('home-temperature')
+    if (item.classList.contains('floors')) popUpShow('home-floor')
+})
 
-// const modal = document.querySelector('.modal-container')
-// modal.addEventListener('click', function({ target }) {
-//         if(!target) return
-//         if (target.closest('.modal-item__button')) popUpHide()
-// })
+const modal = document.querySelector('.modal-container')
+modal.addEventListener('click', function({ target }) {
+        if(!target) return
+        if (target.closest('.modal-item__button')) popUpHide()
+})
 
 // // Hamburger menu
 

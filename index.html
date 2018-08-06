@@ -149,21 +149,21 @@
                      <fieldset class="devices-section__menu-container">
                         <div class="devices-section__menu menu-section">
 
-                        <input class="menu-section__item all-devices" type="radio" name="devices" value="all-devices" id="all-devices" checked>
+                        <input class="devices-section-menu__item menu-section__item all-devices" type="radio" name="devices" value="all-devices" id="all-devices" checked>
                             <label class="emphasized-text menu-item__label devices-menu-item__label" for="all-devices">Все 
                                 <img src="guide/assets/Icons/Arrow_Right/M-Copy@2x.png" class="devices-menu--mobile__icon">
                             </label>
 
-                        <input class="menu-section__item kitchen" type="radio" name="devices" value="kitchen" id="kitchen">
+                        <input class="devices-section-menu__item menu-section__item kitchen" type="radio" name="devices" value="kitchen" id="kitchen">
                             <label class="emphasized-text menu-item__label devices-menu-item__label" for="kitchen">Кухня</label>
 
-                        <input class="menu-section__item living-room" type="radio" name="devices" value="living-room" id="living-room">
+                        <input class="devices-section-menu__item menu-section__item living-room" type="radio" name="devices" value="living-room" id="living-room">
                             <label class="emphasized-text menu-item__label devices-menu-item__label" for="living-room">Зал</label>
 
-                        <input class="menu-section__item bulbs" type="radio" name="devices" value="lights" id="lights">
+                        <input class="devices-section-menu__item menu-section__item bulbs" type="radio" name="devices" value="lights" id="lights">
                             <label class="emphasized-text menu-item__label devices-menu-item__label" for="lights">Лампочки</label>
 
-                        <input class="menu-section__item cameras" type="radio" name="devices" value="cameras" id="cameras">
+                        <input class="devices-section-menu__item menu-section__item cameras" type="radio" name="devices" value="cameras" id="cameras">
                             <label class="emphasized-text menu-item__label devices-menu-item__label" for="cameras">Камеры</label>
                         </div>
                     </fieldset>
@@ -323,7 +323,7 @@
                             <p class="emphasized-text temperature-range__extreme text--main-title">+30</p>
                         </div>
                 </fieldset>                
- 
+
             </div>
 
             <!-- SECOND MODAL -->
@@ -341,7 +341,12 @@
                 </div>
 
                 <fieldset class="modal__main--range-slider">
-                        <input class="menu-section__item--range floor-menu-section__item--range" type="range" min="-10" max="30" id="range-temperature" step="1"/>
+                    <div class="floor-modal__input-container">
+                        <input class="floor-menu-section__item--range" type="range" min="-10" max="30" id="range-floor" step="1"/>
+                        <div class="floor-modal--output" id="floor--output">
+                            <h2 class="modal__data-text emphasized-text text--output floor-output--text">+9</h2>
+                        </div>
+                    </div>
                 </fieldset>
             </div>
 
