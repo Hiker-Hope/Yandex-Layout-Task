@@ -146,26 +146,29 @@
                 <div class="devices__head--menu">
                      <h3 class="devices-section__heading emphasized-text text--main-title">Избранные устройства</h3>
 
-                    <fieldset>
+                     <fieldset class="devices-section__menu-container">
                         <div class="devices-section__menu menu-section">
 
                         <input class="menu-section__item all-devices" type="radio" name="devices" value="all-devices" id="all-devices" checked>
-                            <label class="emphasized-text menu-item__label" for="all-devices">Все</label>
+                            <label class="emphasized-text menu-item__label devices-menu-item__label" for="all-devices">Все 
+                                <img src="guide/assets/Icons/Arrow_Right/M-Copy@2x.png" class="devices-menu--mobile__icon">
+                            </label>
 
                         <input class="menu-section__item kitchen" type="radio" name="devices" value="kitchen" id="kitchen">
-                            <label class="emphasized-text menu-item__label" for="kitchen">Кухня</label>
+                            <label class="emphasized-text menu-item__label devices-menu-item__label" for="kitchen">Кухня</label>
 
                         <input class="menu-section__item living-room" type="radio" name="devices" value="living-room" id="living-room">
-                            <label class="emphasized-text menu-item__label" for="living-room">Зал</label>
+                            <label class="emphasized-text menu-item__label devices-menu-item__label" for="living-room">Зал</label>
 
                         <input class="menu-section__item bulbs" type="radio" name="devices" value="lights" id="lights">
-                            <label class="emphasized-text menu-item__label" for="lights">Лампочки</label>
+                            <label class="emphasized-text menu-item__label devices-menu-item__label" for="lights">Лампочки</label>
 
                         <input class="menu-section__item cameras" type="radio" name="devices" value="cameras" id="cameras">
-                            <label class="emphasized-text menu-item__label" for="cameras">Камеры</label>
+                            <label class="emphasized-text menu-item__label devices-menu-item__label" for="cameras">Камеры</label>
                         </div>
                     </fieldset>
 
+<!-- 
                     <select class="devices-section__menu--mobile emphasized-text">
 
                             <option class="emphasized-text all-devices" value="all-devices" selected>
@@ -183,7 +186,7 @@
                             <option class="emphasized-text cameras" value="cameras">
                                 Камеры</option>
 
-                    </select>
+                    </select> -->
                 </div>
                
 
@@ -196,7 +199,7 @@
             </div>
 
 
-            <div class="devices-list">
+            <!-- <div class="devices-list">
                     <div  class="devices-item item bulbs kitchen living-room all-devices lightBulb">
                             <img class="item__icon" src="guide/assets/icon_sun_2@2x.png">
                             <div class="item__content">
@@ -252,7 +255,7 @@
                                 <p class="item__text text--content">Включено</p>
                             </div>
                     </div>
-            </div>
+            </div> -->
 
         </section>
     </main>
