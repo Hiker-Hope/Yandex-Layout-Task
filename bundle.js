@@ -58,53 +58,30 @@ const devices = [
     }
 ]
 
-const devicesHTML = devices.map(device => document.createElement('div'))
-devicesHTML.forEach(deviceHTML => deviceHTML.className = 'item')
-let device = {};
-let deviceHTML;
-for (i=0; i<devices.length; i++) {
+const devicesHTML = devices.map(device => {
+    const deviceElement = document.createElement('div')
+    deviceElement.classList.add('item', device.type, device.room)
+    deviceElement.innerHTML = `
+        <img class="item__icon" src="${device.icon}">
+        <div class="item__content">
+            <h4 class="emphasized-text text--element-title">${device.name}</h4>
+            ${ device.isOn ? 
+                '<p class="item__text text--content">Включено</p>' :
+                '<p class="item__text text--content">Выключено</p>'}
+        </div>
+    `
+    return deviceElement
+})
 
-    device = devices[i]
-    deviceHTML = devicesHTML[i] 
-    deviceHTML.classList.add(device.type, device.room)
-
-    const icon = document.createElement('img')
-        icon.classList.add('item__icon')
-        icon.setAttribute('src', device.icon)
-    deviceHTML.appendChild(icon)    
-
-    const content = document.createElement('div')
-        content.classList.add('item__content')
-    deviceHTML.appendChild(content)    
-
-    const title = document.createElement('h4')
-        title.classList.add('emphasized-text', 'text--element-title')
-        title.textContent = device.name
-    content.appendChild(title)
-
-    const text = document.createElement('p')
-        text.classList.add('item__text', 'text--content')
-        text.textContent
-                = device.isOn ?
-                'Включено' : 
-                'Выключено'
-    content.appendChild(text)
-}
-// `<img class="item__icon" src="${device.icon}">
-//     <div class="item__content">
-//         <h4 class="emphasized-text text--element-title">${device.name}</h4>
-//             {% if (${device.isOn}) %}
-//                 <p class="item__text text--content">Включено</p>
-//             {% else %}
-//                 <p class="item__text text--content">Выключено</p>
-//             {% endif %}
-//      </div>` 
+console.log(devicesHTML)
 
 const devicesSection = document.querySelector('.main__section--devices')
-const devicesList = document.createElement('div')
-devicesList.className = 'devices-list'
+const devicesList = devicesHTML.reduce((list, deviceElement) => {
+    list.appendChild(deviceElement)
+    return list
+}, document.createElement('div'))
+devicesList.classList.add('devices-list')
 devicesSection.appendChild(devicesList)
-devicesHTML.forEach((deviceHTML) => devicesList.appendChild(deviceHTML))
 
 // Devices filters
 
