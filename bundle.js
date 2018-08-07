@@ -30,7 +30,7 @@ const devices = [
         type: 'lightBulb',
         room: 'living-room',
         isOn: false,
-        icon: 'guide/assets/icon_sun@2x.png'    
+        icon: 'guide/assets/icon_sun@2x.png'
     },
 
     {
@@ -38,7 +38,7 @@ const devices = [
         type: 'air-purifier',
         room: 'kitchen',
         isOn: true,
-        icon: 'guide/assets/icon_sun_2@2x.png'    
+        icon: 'guide/assets/icon_sun_2@2x.png'
     },
 
     {
@@ -46,7 +46,7 @@ const devices = [
         type: 'lightBulb',
         room: 'living-room',
         isOn: false,
-        icon: 'guide/assets/icon_sun@2x.png'    
+        icon: 'guide/assets/icon_sun@2x.png'
     },
 
     {
@@ -54,37 +54,49 @@ const devices = [
         type: 'air-purifier',
         room: 'living-room',
         isOn: true,
-        icon: 'guide/assets/icon_sun_2@2x.png'    
+        icon: 'guide/assets/icon_sun_2@2x.png'
     }
 ]
 
-const devicesHTML = devices.map(device => {
+function createDeviceFragment(device = {}) {
     const deviceElement = document.createElement('div')
     deviceElement.classList.add('item', device.type, device.room)
     deviceElement.innerHTML = `
         <img class="item__icon" src="${device.icon}">
         <div class="item__content">
             <h4 class="emphasized-text text--element-title">${device.name}</h4>
-            ${ device.isOn ? 
+            ${ device.isOn ?
                 '<p class="item__text text--content">Включено</p>' :
                 '<p class="item__text text--content">Выключено</p>'}
         </div>
     `
     return deviceElement
-})
+}
 
-console.log(devicesHTML)
+function renderDevices(devices = []) {
+    const devicesHTML = devices.map(createDeviceFragment)
+    const devicesList = document.querySelector('.devices-list')
+    const fragment = devicesHTML.reduce((list, deviceElement) => {
+        list.appendChild(deviceElement)
+        return list
+    }, document.createDocumentFragment())
+    devicesList.innerHTML = ''
+    devicesList.appendChild(fragment)
+}
 
-const devicesSection = document.querySelector('.main__section--devices')
-const devicesList = devicesHTML.reduce((list, deviceElement) => {
-    list.appendChild(deviceElement)
-    return list
-}, document.createElement('div'))
-devicesList.classList.add('devices-list')
-devicesSection.appendChild(devicesList)
+renderDevices(devices)
 
 // Devices filters
-
+const devicesSection = document.querySelector('.main__section--devices')
+devicesSection.addEventListener('change', function (event) {
+    const {target: {value}} = event
+    const filtered =
+        value == 'kitchen' || value == 'living-room' ? devices.filter(device => device.room == value) :
+        value == 'cameras' ? devices.filter(device => device.type == 'camera') :
+        value == 'lights' ? devices.filter(device => device.type == 'lightBulb') :
+        devices
+    renderDevices(filtered)
+})
 
 
 
@@ -114,7 +126,7 @@ function popUpHide() {
     let tileClose = document.querySelectorAll('.modal__main')
         for (i=0; i<tileClose.length; i++) {
             tileClose[i].classList.add('hidden')
-        } 
+        }
 }
 
 const mainContainer = document.querySelector('.main')
@@ -122,16 +134,15 @@ mainContainer.addEventListener('click', function({ target }) {
     if(!target) return
 
     const item = target.closest('.item')
+    if(!item) return
+
     if (item.classList.contains('lightBulb')) popUpShow('home-lights')
     if (item.classList.contains('thermometer')) popUpShow('home-temperature')
     if (item.classList.contains('floors')) popUpShow('home-floor')
 })
 
-const modal = document.querySelector('.modal-container')
-modal.addEventListener('click', function({ target }) {
-        if(!target) return
-        if (target.closest('.modal-item__button')) popUpHide()
-})
+// const modal = document.querySelector('.modal-container')
+
 
 // Hamburger menu
 
@@ -174,11 +185,13 @@ paginatorContainerMain.addEventListener('click', function({ target }) {
                             document.querySelector('.devices-list')
 
     const paginatorButton = target.closest('.paginator-button')
+    if(!paginatorButton) return
+
         if (paginatorButton.classList.contains('paginator--forward')) {
             const backButton = paginatorButton.parentNode.querySelector('.paginator--back')
             backButton.disabled = false
 
-            turnPage ('forward', itemToMove) 
+            turnPage ('forward', itemToMove)
             const { offsetWidth, scrollWidth, style: { transform: transformStyle } } = itemToMove
             const translateValue = Number(transformStyle.replace(/[^\d.]/g, ''));
             paginatorButton.disabled = translateValue + offsetWidth >= scrollWidth
@@ -188,7 +201,7 @@ paginatorContainerMain.addEventListener('click', function({ target }) {
             const forwardButton = paginatorButton.parentNode.querySelector('.paginator--forward')
             forwardButton.disabled = false
 
-            turnPage ('back', itemToMove)  
+            turnPage ('back', itemToMove)
             const { style: { transform: transformStyle } } = itemToMove
             const translateValue = Number(transformStyle.replace(/[^\d.-]/g, ''));
             paginatorButton.disabled = translateValue >= 0
@@ -197,11 +210,11 @@ paginatorContainerMain.addEventListener('click', function({ target }) {
 
 // Temperature range slider
 
-function getOutputValue(temperatureValue) {   
-    const outputValue = 
-            (temperatureValue > 0) ? 
+function getOutputValue(temperatureValue) {
+    const outputValue =
+            (temperatureValue > 0) ?
             `+${temperatureValue}` :
-            temperatureValue 
+            temperatureValue
         document.getElementById('temperature--output').textContent = outputValue;
 }
 
@@ -210,16 +223,20 @@ function getOutputValue(temperatureValue) {
 const modalContainer = document.querySelector('.modal-container')
 modalContainer.addEventListener('click', function({ target }) {
     if(!target) return;
+    if (target.closest('.modal-item__button')) {
+        popUpHide()
+        return
+    }
 
     const modalMain = target.closest('.modal__main')
     const menuButton = target.closest('.menu-section__item')
     const lightsSlider = document.getElementById('range-lights')
-    const temperatureSlider = document.getElementById('range-temperature')    
+    const temperatureSlider = document.getElementById('range-temperature')
 
     if (modalMain.classList.contains('modal--lights')) {
         lightsSlider.value = menuButton.value
-    } else { 
+    } else {
         temperatureSlider.value = menuButton.value
         getOutputValue(temperatureSlider.value)
-    } 
+    }
 })
