@@ -3,7 +3,7 @@
 const devices = [
     {
         name: 'Xiaomi Yeelight LED Smart Bulb',
-        type: 'bulb',
+        type: 'lightBulb',
         room: 'kitchen',
         isOn: true,
         icon: 'guide/assets/icon_sun_2@2x.png'
@@ -19,7 +19,7 @@ const devices = [
 
     {
         name: 'Elgato Eve Degree Connected',
-        type: 'thermostat',
+        type: 'thermometer',
         room: 'kitchen',
         isOn: false,
         icon: 'guide/assets/icon_temperature@2x.png'
@@ -27,7 +27,7 @@ const devices = [
 
     {
         name: 'LIFX Mini Day &amp; Dusk A60 E27',
-        type: 'bulb',
+        type: 'lightBulb',
         room: 'living-room',
         isOn: false,
         icon: 'guide/assets/icon_sun@2x.png'    
@@ -43,7 +43,7 @@ const devices = [
 
     {
         name: 'Philips Zhirui',
-        type: 'bulb',
+        type: 'lightBulb',
         room: 'living-room',
         isOn: false,
         icon: 'guide/assets/icon_sun@2x.png'    
