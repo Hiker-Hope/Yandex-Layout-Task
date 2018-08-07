@@ -89,7 +89,6 @@ for (i=0; i<devices.length; i++) {
                 'Включено' : 
                 'Выключено'
     content.appendChild(text)
-
 }
 // `<img class="item__icon" src="${device.icon}">
 //     <div class="item__content">
@@ -101,8 +100,6 @@ for (i=0; i<devices.length; i++) {
 //             {% endif %}
 //      </div>` 
 
-console.log(devicesHTML)
-
 const devicesSection = document.querySelector('.main__section--devices')
 const devicesList = document.createElement('div')
 devicesList.className = 'devices-list'
@@ -110,7 +107,6 @@ devicesSection.appendChild(devicesList)
 devicesHTML.forEach((deviceHTML) => devicesList.appendChild(deviceHTML))
 
 // Devices filters
-
 
 
 
@@ -127,7 +123,7 @@ for(i=0; i<toggleDevicesMenuButtons.length; i++) {
     })
 }
 
-// Modals
+// Modals popup
 
 function popUpShow(itemId) {
     document.querySelector('.overlay').classList.remove('overlay--hidden');
@@ -186,7 +182,7 @@ function turnPage(direction, container) {
     const nextTranslateValue = direction == 'forward' ?
                         translateValue - offsetWidth :
                         translateValue + offsetWidth
-    
+
     container.style.transform = `translateX(${nextTranslateValue}px)`
 }
 
@@ -242,7 +238,7 @@ modalContainer.addEventListener('click', function({ target }) {
     const menuButton = target.closest('.menu-section__item')
     const lightsSlider = document.getElementById('range-lights')
     const temperatureSlider = document.getElementById('range-temperature')    
-    
+
     if (modalMain.classList.contains('modal--lights')) {
         lightsSlider.value = menuButton.value
     } else { 
