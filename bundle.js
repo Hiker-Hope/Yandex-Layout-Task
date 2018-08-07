@@ -27,7 +27,7 @@ const devices = [
 
     {
         name: 'LIFX Mini Day &amp; Dusk A60 E27',
-        type: 'lightBulb',
+        type: 'camera',
         room: 'living-room',
         isOn: false,
         icon: 'guide/assets/icon_sun@2x.png'
@@ -43,7 +43,7 @@ const devices = [
 
     {
         name: 'Philips Zhirui',
-        type: 'lightBulb',
+        type: 'camera',
         room: 'living-room',
         isOn: false,
         icon: 'guide/assets/icon_sun@2x.png'
@@ -87,6 +87,7 @@ function renderDevices(devices = []) {
 renderDevices(devices)
 
 // Devices filters
+
 const devicesSection = document.querySelector('.main__section--devices')
 devicesSection.addEventListener('change', function (event) {
     const {target: {value}} = event
