@@ -745,16 +745,13 @@ body{
         background-color: rgb(248, 232, 167);
         
     }
-    .devices-section-menu__item {
-        order: 2;
+
+    .devices-section-menu__item:checked + label {
+        order: -1;
     }
 
-    .devices-section-menu__item :checked {
-        order: 1;
-    }
-
-    .devices-menu-item__label:not(:nth-child(2)) {
-        margin-top: 3px;
+    .devices-menu-item__label {
+        margin-bottom: 3px;
     }
 
     /* .devices-section__menu--mobile {
