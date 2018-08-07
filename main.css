@@ -132,6 +132,7 @@ body{
     grid-template-columns: repeat(auto-fit, minmax(calc(50% - var(--padding-small)), calc(50% - var(--padding-small))));
     grid-gap: var(--margin-medium);
     row-gap: var(--margin-big);
+    margin: auto;
 }
 
 .section-main__title {
@@ -140,7 +141,7 @@ body{
 
 .section-main__container {
     display: flex;
-    max-height: 351px;
+    min-height: 344px;
     overflow: hidden;
     justify-content: space-between;
     align-items: flex-start;
@@ -597,9 +598,19 @@ body{
         }
 }
 
+@media screen and (max-width: 1250px) {
+    .scheduled-list {
+        grid-auto-flow: column;
+        }
+}
+
 @media screen and (max-width: 768px) {
     .main {
         grid-template-columns: repeat(auto-fit, minmax(335px, 632px));
+    }
+
+    .section-main__container {
+        min-height: 0;
     }
 
     .scheduled-list {
@@ -715,7 +726,23 @@ body{
     }
 
     .devices-section__menu-container{
+        position: relative;
         z-index: 1;
+    }
+
+    .devices-section__menu-container::before{
+        z-index: 1;
+        content:'';
+        position: absolute;
+        background: url('guide/assets/Icons/Arrow_Right/M-Copy@2x.png') no-repeat;
+        width: 6px;
+        height: 12px;
+        background-size: cover;
+        left: 86px;
+        top: 10px;
+        transform: rotate(-90deg);
+        filter: brightness(0);
+
     }
 
     .devices-section__menu {
@@ -723,7 +750,7 @@ body{
         overflow: hidden;
         height: 30px;
         transition: transform 1s;
-        transform: scale(0.9)
+        transform: scale(0.95)
     }
 
     .devices-section__menu--hidden {
@@ -732,18 +759,9 @@ body{
         transform: scale(1)
     }
 
-    .devices-menu--mobile__icon {
-        display: inline-block;
-        height: 12px;
-        transform: rotate(-90deg);
-        vertical-align: middle;
-        margin-left: 16px;
-        filter: brightness(0);
-    }
-
     .devices-menu-item__label {
         background-color: rgb(248, 232, 167);
-        
+        padding-right: 30px;
     }
 
     .devices-section-menu__item:checked + label {
@@ -753,18 +771,6 @@ body{
     .devices-menu-item__label {
         margin-bottom: 3px;
     }
-
-    /* .devices-section__menu--mobile {
-        display: inline;
-        font-size: 13px;
-        padding: 8px 15px;
-        background: #FFD93E;
-        border: none;
-        border-radius: 20px;
-        margin-bottom: 20px;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-    } */
 
     .modal-container {
         grid-template-columns: 334px;
