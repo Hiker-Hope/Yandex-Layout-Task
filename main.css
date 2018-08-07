@@ -870,4 +870,8 @@ body{
     .modal-item__button {
         height: 50px;
     }
+
+    .floor-modal__input-container {
+        padding-top: 36px;
+    }
 }
