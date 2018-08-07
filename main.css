@@ -835,13 +835,19 @@ body{
         padding-left: 12px;
     }
 
+    .devices__head--menu {
+        align-items: center; 
+    }
+
     .modal-container {
         grid-template-columns: 310px;
         grid-gap: 8px;
     }
+
     .modal__heading {
         font-size: var(--text-big);
     }
+
     .modal__menu {
         margin: 8px 0;
         width: 290px;
