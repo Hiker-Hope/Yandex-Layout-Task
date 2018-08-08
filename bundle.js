@@ -6,56 +6,56 @@ const devices = [
         type: 'lightBulb',
         room: 'kitchen',
         isOn: true,
-        icon: 'guide/assets/icon_sun_2@2x.png'
+        icon: 'guide/assets/icon_sun_2.svg'
     },
     {
         name: 'Xiaomi Yeelight LED Smart Bulb',
         type: 'lightBulb',
         room: 'kitchen',
         isOn: true,
-        icon: 'guide/assets/icon_sun_2@2x.png'
+        icon: 'guide/assets/icon_sun_2.svg'
     },
     {
         name: 'Xiaomi Yeelight LED Smart Bulb',
         type: 'lightBulb',
         room: 'kitchen',
         isOn: true,
-        icon: 'guide/assets/icon_sun_2@2x.png'
+        icon: 'guide/assets/icon_sun_2.svg'
     },
     {
         name: 'Xiaomi Yeelight LED Smart Bulb',
         type: 'lightBulb',
         room: 'kitchen',
         isOn: true,
-        icon: 'guide/assets/icon_sun_2@2x.png'
+        icon: 'guide/assets/icon_sun_2.svg'
     },
     {
         name: 'Xiaomi Yeelight LED Smart Bulb',
         type: 'lightBulb',
         room: 'kitchen',
         isOn: true,
-        icon: 'guide/assets/icon_sun_2@2x.png'
+        icon: 'guide/assets/icon_sun_2.svg'
     },
     {
         name: 'Xiaomi Yeelight LED Smart Bulb',
         type: 'lightBulb',
         room: 'kitchen',
         isOn: true,
-        icon: 'guide/assets/icon_sun_2@2x.png'
+        icon: 'guide/assets/icon_sun_2.svg'
     },
     {
         name: 'Xiaomi Yeelight LED Smart Bulb',
         type: 'lightBulb',
         room: 'kitchen',
         isOn: true,
-        icon: 'guide/assets/icon_sun_2@2x.png'
+        icon: 'guide/assets/icon_sun_2.svg'
     },
     {
         name: 'Xiaomi Yeelight LED Smart Bulb',
         type: 'lightBulb',
         room: 'kitchen',
         isOn: true,
-        icon: 'guide/assets/icon_sun_2@2x.png'
+        icon: 'guide/assets/icon_sun_2.svg'
     },
 
     {
@@ -63,7 +63,7 @@ const devices = [
         type: 'camera',
         room: 'living-room',
         isOn: false,
-        icon: 'guide/assets/icon_sun@2x.png'
+        icon: 'guide/assets/icon_sun.svg'
     },
 
     {
@@ -71,7 +71,7 @@ const devices = [
         type: 'thermometer',
         room: 'kitchen',
         isOn: false,
-        icon: 'guide/assets/icon_temperature@2x.png'
+        icon: 'guide/assets/icon_temperature.svg'
     },
 
     {
@@ -79,7 +79,7 @@ const devices = [
         type: 'camera',
         room: 'living-room',
         isOn: false,
-        icon: 'guide/assets/icon_sun@2x.png'
+        icon: 'guide/assets/icon_sun.svg'
     },
 
     {
@@ -87,7 +87,7 @@ const devices = [
         type: 'air-purifier',
         room: 'kitchen',
         isOn: true,
-        icon: 'guide/assets/icon_sun_2@2x.png'
+        icon: 'guide/assets/icon_sun_2.svg'
     },
 
     {
@@ -95,7 +95,7 @@ const devices = [
         type: 'camera',
         room: 'living-room',
         isOn: false,
-        icon: 'guide/assets/icon_sun@2x.png'
+        icon: 'guide/assets/icon_sun.svg'
     },
 
     {
@@ -103,7 +103,7 @@ const devices = [
         type: 'air-purifier',
         room: 'living-room',
         isOn: true,
-        icon: 'guide/assets/icon_sun_2@2x.png'
+        icon: 'guide/assets/icon_sun_2.svg'
     }
 ]
 

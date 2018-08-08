@@ -100,7 +100,7 @@ body{
 }
 
 .header__logo {
-    background: url("guide/assets/Яндекс\ Дом.svg") no-repeat;
+    background: url("guide/assets/Yandex_Dom.svg") no-repeat;
     width: 114px;
     height: 39px;
     margin-right: 52px;
@@ -200,7 +200,7 @@ body{
 }
 
 .with-icon--drizzle::after {
-    background: url('guide/assets/cloud-drizzle@2x.png') no-repeat center;
+    background: url('guide/assets/cloud-drizzle.svg') no-repeat center;
 }
 
 .with-icon::after {
@@ -585,7 +585,7 @@ body{
     position: relative;
     height: 221px;
     width: 221px;
-    background: url("guide/assets/background@1x.svg") no-repeat;
+    background: url("guide/assets/background.svg") no-repeat;
     background-size: 185px 185px;
     margin: 0;
     display: flex;
@@ -600,7 +600,7 @@ body{
     position: absolute;
     width: 100%;
     height: 100%;
-    background: url(guide/assets/Oval@1x.svg) no-repeat;
+    background: url(guide/assets/Oval_Yellow.svg) no-repeat;
     transform: rotate(-65deg);
     z-index: 5;
 }
@@ -610,7 +610,7 @@ body{
     position: absolute;
     width: 100%;
     height: 100%;
-    background: url(guide/assets/Oval\ Copy@1x.svg) no-repeat;
+    background: url(guide/assets/Oval_Dark.svg) no-repeat;
     left: 143px;
     top: 70px;
     transform: rotate(-19deg);
