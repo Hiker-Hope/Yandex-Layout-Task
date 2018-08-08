@@ -159,12 +159,12 @@ body{
     content: '';
     position: absolute;
     width: 200px;
-    height: 30px;
+    height: 34px;
     background: #F7F7F7 url(guide/assets/Icons/Arrow_Double/M.svg) no-repeat;
     background-position: 50%;
     right: 6px;
     border-radius: 20px;
-    bottom: 4px;
+    bottom: 0px;
 }
 
 .section-main__info {
