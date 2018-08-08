@@ -152,6 +152,17 @@ body{
     background: url("guide/assets/bg@2x.png");
     background-size: cover;
     border-radius: 20px;
+    position: relative;
+}
+
+.section-main__container::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: url(guide/assets/Icons/Arrow_Double/M.svg) no-repeat;
+    right: 100px;
+    bottom: 10px;
 }
 
 .section-main__info {
@@ -224,7 +235,7 @@ body{
     max-height: 326px;
     overflow: scroll;
     margin: 0 var(--negative-padding-small);
-    padding-left: var(--padding-small)
+    padding-left: var(--padding-small);
 }
 
 .main__section--selected {
@@ -638,6 +649,10 @@ body{
         width: 1px;
         height: 1px;
         display: block;
+    }
+
+    .section-main__container::after {
+        display: none;
     }
 }
 
