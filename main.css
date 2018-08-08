@@ -158,11 +158,13 @@ body{
 .section-main__container::after {
     content: '';
     position: absolute;
-    width: 16px;
-    height: 16px;
-    background: url(guide/assets/Icons/Arrow_Double/M.svg) no-repeat;
-    right: 100px;
-    bottom: 10px;
+    width: 200px;
+    height: 30px;
+    background: #F7F7F7 url(guide/assets/Icons/Arrow_Double/M.svg) no-repeat;
+    background-position: 50%;
+    right: 6px;
+    border-radius: 20px;
+    bottom: 4px;
 }
 
 .section-main__info {
