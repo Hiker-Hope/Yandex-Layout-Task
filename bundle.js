@@ -8,6 +8,55 @@ const devices = [
         isOn: true,
         icon: 'guide/assets/icon_sun_2@2x.png'
     },
+    {
+        name: 'Xiaomi Yeelight LED Smart Bulb',
+        type: 'lightBulb',
+        room: 'kitchen',
+        isOn: true,
+        icon: 'guide/assets/icon_sun_2@2x.png'
+    },
+    {
+        name: 'Xiaomi Yeelight LED Smart Bulb',
+        type: 'lightBulb',
+        room: 'kitchen',
+        isOn: true,
+        icon: 'guide/assets/icon_sun_2@2x.png'
+    },
+    {
+        name: 'Xiaomi Yeelight LED Smart Bulb',
+        type: 'lightBulb',
+        room: 'kitchen',
+        isOn: true,
+        icon: 'guide/assets/icon_sun_2@2x.png'
+    },
+    {
+        name: 'Xiaomi Yeelight LED Smart Bulb',
+        type: 'lightBulb',
+        room: 'kitchen',
+        isOn: true,
+        icon: 'guide/assets/icon_sun_2@2x.png'
+    },
+    {
+        name: 'Xiaomi Yeelight LED Smart Bulb',
+        type: 'lightBulb',
+        room: 'kitchen',
+        isOn: true,
+        icon: 'guide/assets/icon_sun_2@2x.png'
+    },
+    {
+        name: 'Xiaomi Yeelight LED Smart Bulb',
+        type: 'lightBulb',
+        room: 'kitchen',
+        isOn: true,
+        icon: 'guide/assets/icon_sun_2@2x.png'
+    },
+    {
+        name: 'Xiaomi Yeelight LED Smart Bulb',
+        type: 'lightBulb',
+        room: 'kitchen',
+        isOn: true,
+        icon: 'guide/assets/icon_sun_2@2x.png'
+    },
 
     {
         name: 'D-Link Omna 180 Cam',
@@ -99,13 +148,10 @@ devicesSection.addEventListener('change', function (event) {
     renderDevices(filtered)
 })
 
-
-
-
 // Devices menu - mobile
 
 const toggleDevicesMenuButtons = document.querySelectorAll('.devices-menu-item__label')
-for(i=0; i<toggleDevicesMenuButtons.length; i++) {
+for (let i=0; i<toggleDevicesMenuButtons.length; i++) {
     const toggleDevicesMenuButton = toggleDevicesMenuButtons[i]
     toggleDevicesMenuButton.addEventListener('click', function() {
         toggleDevicesMenuButton.checked = true;
@@ -125,7 +171,7 @@ function popUpHide() {
     document.querySelector('.overlay').classList.add('overlay--hidden');
     document.querySelector('.modal-container').classList.add('modal-container--hidden');
     let tileClose = document.querySelectorAll('.modal__main')
-        for (i=0; i<tileClose.length; i++) {
+        for (let i=0; i<tileClose.length; i++) {
             tileClose[i].classList.add('hidden')
         }
 }
@@ -166,13 +212,19 @@ shouldEnableForward('.main__section--devices')
 // Pagination
 
 function turnPage(direction, container) {
-    let { offsetWidth, style: { transform: transformStyle } } = container
-    const translateValue = Number(transformStyle.replace(/[^\d.-]/g, ''));
-    const nextTranslateValue = direction == 'forward' ?
-                        translateValue - offsetWidth :
-                        translateValue + offsetWidth
-
-    container.style.transform = `translateX(${nextTranslateValue}px)`
+    let { offsetWidth, scrollLeft } = container
+    // console.log(scrollLeft)
+    // const translateValue = Number(transformStyle.replace(/[^\d.-]/g, ''));
+    // const nextTranslateValue = direction == 'forward' ?
+    //                     translateValue - offsetWidth :
+    //                     translateValue + offsetWidth
+    const scrollAmount = direction == 'forward' ? scrollLeft + offsetWidth : scrollLeft - offsetWidth
+    // container.style.transform = `translateX(${nextTranslateValue}px)`
+    // container.scrollLeft = offsetWidth
+    container.scrollTo({
+        left: scrollAmount,
+        behavior: "smooth"
+    });
 }
 
 const paginatorContainerMain = document.querySelector('.main')
@@ -193,9 +245,11 @@ paginatorContainerMain.addEventListener('click', function({ target }) {
             backButton.disabled = false
 
             turnPage ('forward', itemToMove)
-            const { offsetWidth, scrollWidth, style: { transform: transformStyle } } = itemToMove
-            const translateValue = Number(transformStyle.replace(/[^\d.]/g, ''));
-            paginatorButton.disabled = translateValue + offsetWidth >= scrollWidth
+            const { offsetWidth, scrollLeft, scrollWidth } = itemToMove
+            // const translateValue = Number(transformStyle.replace(/[^\d.]/g, ''));
+            paginatorButton.disabled = scrollLeft + offsetWidth >= scrollWidth - offsetWidth
+            // console.log(scrollLeft)
+            // console.log(scrollWidth)
         }
 
         if (paginatorButton.classList.contains('paginator--back')) {
@@ -203,9 +257,10 @@ paginatorContainerMain.addEventListener('click', function({ target }) {
             forwardButton.disabled = false
 
             turnPage ('back', itemToMove)
-            const { style: { transform: transformStyle } } = itemToMove
-            const translateValue = Number(transformStyle.replace(/[^\d.-]/g, ''));
-            paginatorButton.disabled = translateValue >= 0
+            const { scrollLeft, offsetWidth } = itemToMove
+            // console.log(scrollLeft)
+            // const translateValue = Number(transformStyle.replace(/[^\d.-]/g, ''));
+            paginatorButton.disabled = scrollLeft - offsetWidth <= 0
         }
 })
 
