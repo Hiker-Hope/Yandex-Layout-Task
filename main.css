@@ -607,6 +607,20 @@ body{
 
 .floor-output--text {
     z-index: 10;
+    font-size: 66px;
+    position: relative;
+}
+
+.floor-output--text::after {
+    content: '';
+    z-index: 10;
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    background: url(guide/assets/Icons/icon_arrow.svg) no-repeat;
+    left: 110px;
+    top: 6px;
+    transform: rotate(75deg);
 }
 
 @media screen and (min-width: 1420px) {
@@ -744,10 +758,6 @@ body{
     .with-icon::after {
         width: 18px;
         height: 18px;
-    }
-
-    .text--output {
-        font-size: 24px;
     }
 
     .footer__links {
