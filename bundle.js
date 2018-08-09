@@ -296,3 +296,24 @@ modalContainer.addEventListener('click', function({ target }) {
         getOutputValue(temperatureSlider.value)
     }
 })
+
+const debounce = (callback, time = 250, interval) =>
+  (...args) =>
+    clearTimeout(interval, interval = setTimeout(() => callback(...args), time));
+
+// arrow box
+const scheduledList = document.querySelector('.scheduled-list')
+if (scheduledList.children.length > 2 && window.innerWidth > 1250) {
+    scheduledList.classList.add('arrow-box')
+}
+
+scheduledList.addEventListener('scroll', debounce(function(event) {
+    if (scheduledList.scrollTop > 0) scheduledList.classList.remove('arrow-box')
+    if (scheduledList.scrollTop <= 0) scheduledList.classList.add('arrow-box')
+}, 10))
+
+
+window.addEventListener('resize', debounce(function () {
+    if (window.innerWidth <= 1250) scheduledList.classList.remove('arrow-box')
+    if (window.innerWidth > 1250) scheduledList.classList.add('arrow-box')
+}) )

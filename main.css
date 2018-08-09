@@ -24,6 +24,7 @@
     --margin-big: 29px;
     --margin-medium: 26px;
     --margin-small: 15px;
+    --border-radius: 20px;
     --text-grand: 27px;
     --text-big: 18px;
     --text-medium: 14px;
@@ -66,7 +67,7 @@ body{
 
 .item{
     background: #F7F7F7;
-    border-radius: 20px;
+    border-radius: var(--border-radius);
     padding: 14px;
     display: flex;
     flex-direction: column;
@@ -151,21 +152,21 @@ body{
     flex-wrap: wrap;
     background: url("guide/assets/bg@2x.png");
     background-size: cover;
-    border-radius: 20px;
+    border-radius: var(--border-radius);
     position: relative;
 }
 
-.section-main__container::after {
+/* .section-main__container::after {
     content: '';
     position: absolute;
     width: 200px;
     height: 34px;
     background: #F7F7F7 url(guide/assets/Icons/Arrow_Double/M.svg) no-repeat;
     background-position: 50%;
-    right: 6px;
+    right: calc(var(--padding-small) + 5px);
     border-radius: 20px;
     bottom: 0px;
-}
+} */
 
 .section-main__info {
     max-width: 360px;
@@ -236,8 +237,18 @@ body{
     grid-gap: 20px;
     max-height: 326px;
     overflow: scroll;
-    margin: 0 var(--negative-padding-small);
-    padding-left: var(--padding-small);
+
+}
+
+.arrow-box::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 34px;
+    background: #F7F7F7 url(guide/assets/Icons/Arrow_Double/M.svg) no-repeat center;
+    /* background-position: 50%; */
+    border-radius: var(--border-radius);
+    bottom: 0px;
 }
 
 .main__section--selected {
@@ -293,7 +304,7 @@ body{
 .menu-item__label{
     background: #F0F0F0;
     padding: 8px 15px;
-    border-radius: 20px;
+    border-radius: var(--border-radius);
     font-size: 13px;
     color: #000000;
     margin-right: 10px;
@@ -378,7 +389,7 @@ body{
 
 .modal__item {
     background: #FFFFFF;
-    border-radius: 20px;
+    border-radius: var(--border-radius);
 }
 
 .modal__main {
@@ -645,6 +656,8 @@ body{
 @media screen and (max-width: 1250px) {
     .scheduled-list {
         grid-auto-flow: column;
+        margin: 0 var(--negative-padding-small);
+        padding-left: var(--padding-small);
     }
     .scheduled-list::after {
         content: '';
