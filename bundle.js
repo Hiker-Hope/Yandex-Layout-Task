@@ -8,55 +8,6 @@ const devices = [
         isOn: true,
         icon: "guide/assets/icon_sun_2.svg",
     },
-    {
-        name: "Xiaomi Yeelight LED Smart Bulb",
-        type: "lightBulb",
-        room: "kitchen",
-        isOn: true,
-        icon: "guide/assets/icon_sun_2.svg",
-    },
-    {
-        name: "Xiaomi Yeelight LED Smart Bulb",
-        type: "lightBulb",
-        room: "kitchen",
-        isOn: true,
-        icon: "guide/assets/icon_sun_2.svg",
-    },
-    {
-        name: "Xiaomi Yeelight LED Smart Bulb",
-        type: "lightBulb",
-        room: "kitchen",
-        isOn: true,
-        icon: "guide/assets/icon_sun_2.svg",
-    },
-    {
-        name: "Xiaomi Yeelight LED Smart Bulb",
-        type: "lightBulb",
-        room: "kitchen",
-        isOn: true,
-        icon: "guide/assets/icon_sun_2.svg",
-    },
-    {
-        name: "Xiaomi Yeelight LED Smart Bulb",
-        type: "lightBulb",
-        room: "kitchen",
-        isOn: true,
-        icon: "guide/assets/icon_sun_2.svg",
-    },
-    {
-        name: "Xiaomi Yeelight LED Smart Bulb",
-        type: "lightBulb",
-        room: "kitchen",
-        isOn: true,
-        icon: "guide/assets/icon_sun_2.svg",
-    },
-    {
-        name: "Xiaomi Yeelight LED Smart Bulb",
-        type: "lightBulb",
-        room: "kitchen",
-        isOn: true,
-        icon: "guide/assets/icon_sun_2.svg",
-    },
 
     {
         name: "D-Link Omna 180 Cam",
@@ -181,9 +132,6 @@ mainContainer.addEventListener("click", ({ target }) => {
     if (item.classList.contains("floors")) popUpShow("home-floor");
 });
 
-// const modal = document.querySelector('.modal-container')
-
-
 // Hamburger menu
 
 const toggleMainMenuBtn = document.querySelector(".header-menu__icon");
@@ -276,7 +224,8 @@ modalContainer.addEventListener("click", ({ target }) => {
 
 const debounce = (callback, time = 250, interval) => (...args) => clearTimeout(interval, interval = setTimeout(() => callback(...args), time));
 
-// arrow box
+// Arrow box
+
 const scheduledList = document.querySelector(".dashboard__list");
 
 scheduledList.addEventListener("scroll", debounce(() => {

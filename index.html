@@ -47,12 +47,12 @@
                     <div class="dashboard-weather">
 
                         <div class="dashboard-weather__temp">
-                            <h5 class="text">Дома</h5>
-                            <p class="emphasized-text degrees">-15</p>
+                            <h5 class="text dashboard--info">Дома</h5>
+                            <p class="emphasized-text degrees">+15</p>
                         </div>
 
                         <div class="dashboard-weather__temp">
-                            <h5 class="text">За окном</h5>
+                            <h5 class="text dashboard--info">За окном</h5>
                             <p class="emphasized-text degrees with-icon with-icon--drizzle">+10</p>
                         </div>
                     </div>
@@ -97,62 +97,8 @@
                 </div>
             </div>
 
-            <div class="list">
+            <div class="list selected-list">
 
-                        <div  class="item--list item lightBulb">
-                            <img class="item__icon" src="guide/assets/icon_sun_2.svg">
-                            <div class="item__content">
-                                <h4 class="emphasized-text text">Выключить весь свет в доме и во дворе</h4>
-                            </div>
-                        </div>
-                        <div  class="item--list item lightBulb">
-                            <img class="item__icon" src="guide/assets/icon_sun_2.svg">
-                            <div class="item__content">
-                                <h4 class="emphasized-text text">Выключить весь свет в доме и во дворе</h4>
-                            </div>
-                        </div>
-                        <div  class="item--list item lightBulb">
-                            <img class="item__icon" src="guide/assets/icon_sun_2.svg">
-                            <div class="item__content">
-                                <h4 class="emphasized-text text">Выключить весь свет в доме и во дворе</h4>
-                            </div>
-                        </div>
-                        <div  class="item--list item lightBulb">
-                            <img class="item__icon" src="guide/assets/icon_sun_2.svg">
-                            <div class="item__content">
-                                <h4 class="emphasized-text text">Выключить весь свет в доме и во дворе</h4>
-                            </div>
-                        </div>
-                        <div  class="item--list item lightBulb">
-                            <img class="item__icon" src="guide/assets/icon_sun_2.svg">
-                            <div class="item__content">
-                                <h4 class="emphasized-text text">Выключить весь свет в доме и во дворе</h4>
-                            </div>
-                        </div>
-                        <div  class="item--list item lightBulb">
-                            <img class="item__icon" src="guide/assets/icon_sun_2.svg">
-                            <div class="item__content">
-                                <h4 class="emphasized-text text">Выключить весь свет в доме и во дворе</h4>
-                            </div>
-                        </div>
-                        <div  class="item--list item lightBulb">
-                            <img class="item__icon" src="guide/assets/icon_sun_2.svg">
-                            <div class="item__content">
-                                <h4 class="emphasized-text text">Выключить весь свет в доме и во дворе</h4>
-                            </div>
-                        </div>
-                        <div  class="item--list item lightBulb">
-                            <img class="item__icon" src="guide/assets/icon_sun_2.svg">
-                            <div class="item__content">
-                                <h4 class="emphasized-text text">Выключить весь свет в доме и во дворе</h4>
-                            </div>
-                        </div>
-                        <div  class="item--list item lightBulb">
-                            <img class="item__icon" src="guide/assets/icon_sun_2.svg">
-                            <div class="item__content">
-                                <h4 class="emphasized-text text">Выключить весь свет в доме и во дворе</h4>
-                            </div>
-                        </div>
                         <div  class="item--list item lightBulb">
                             <img class="item__icon" src="guide/assets/icon_sun_2.svg">
                             <div class="item__content">
@@ -203,20 +149,20 @@
                      <fieldset class="controls">
                         <div class="controls__container">
 
-                        <input class="controls__input" type="radio" name="devices" value="all-devices" id="all-devices" checked>
-                            <label class="emphasized-text controls__label" for="all-devices">Все</label>
+                        <input class="controls__input controls__input--devices" type="radio" name="devices" value="all-devices" id="all-devices" checked>
+                            <label class="emphasized-text controls__label controls__label--devices" for="all-devices">Все</label>
 
-                        <input class="controls__input" type="radio" name="devices" value="kitchen" id="kitchen">
-                            <label class="emphasized-text controls__label" for="kitchen">Кухня</label>
+                        <input class="controls__input controls__input--devices" type="radio" name="devices" value="kitchen" id="kitchen">
+                            <label class="emphasized-text controls__label controls__label--devices" for="kitchen">Кухня</label>
 
-                        <input class="controls__input" type="radio" name="devices" value="living-room" id="living-room">
-                            <label class="emphasized-text controls__label" for="living-room">Зал</label>
+                        <input class="controls__input controls__input--devices" type="radio" name="devices" value="living-room" id="living-room">
+                            <label class="emphasized-text controls__label controls__label--devices" for="living-room">Зал</label>
 
-                        <input class="controls__input" type="radio" name="devices" value="lights" id="lights">
-                            <label class="emphasized-text controls__label" for="lights">Лампочки</label>
+                        <input class="controls__input controls__input--devices" type="radio" name="devices" value="lights" id="lights">
+                            <label class="emphasized-text controls__label controls__label--devices" for="lights">Лампочки</label>
 
-                        <input class="controls__input" type="radio" name="devices" value="cameras" id="cameras">
-                            <label class="emphasized-text controls__label" for="cameras">Камеры</label>
+                        <input class="controls__input controls__input--devices" type="radio" name="devices" value="cameras" id="cameras">
+                            <label class="emphasized-text controls__label controls__label--devices" for="cameras">Камеры</label>
                         </div>
                     </fieldset>
 
@@ -278,7 +224,7 @@
                         <label  class=" controls__label modal__menu-item emphasized-text" for="hot">Жарко</label>
                     </div>
 
-                <fieldset class="modal--range-slider">
+                <div class="modal--range-slider">
 
                         <input
                             class="controls__input--range  temperature-controls__input"
@@ -295,11 +241,10 @@
                             <p class="emphasized-text temperature-range__extreme text--main-title">–10</p>
                             <p class="emphasized-text temperature-range__extreme text--main-title">+30</p>
                         </div>
-                </fieldset>
+                </div>
 
             </div>
 
-            <!-- SECOND MODAL -->
             <div class="modal hidden" id="home-floor">
 
                 <div class="modal__head">
@@ -308,22 +253,18 @@
                         <p class="modal__subtitle text">Включено</p>
                     </div>
                     <div class="modal__data">
-                        <h2 class="modal__data-text emphasized-text text--output" id="floor--output">+9</h2>
+                        <h2 class="modal__data-text emphasized-text text--output" id="floor--output">+23</h2>
                         <img class="modal__icon" src="guide/assets/icon_temperature_2.svg">
                     </div>
                 </div>
 
-                <fieldset class="modal--range-slider">
                     <div class="floor-modal__input-container">
                         <input class="floor-controls__input--range" type="range" min="-10" max="30" id="range-floor" step="1"/>
                         <div class="floor-modal--output" id="floor--output">
-                            <h2 class="modal__data-text emphasized-text floor-output--text">+9</h2>
+                            <h2 class="modal__data-text emphasized-text floor-output--text">+23</h2>
                         </div>
                     </div>
-                </fieldset>
             </div>
-
-            <!-- THIRD MODAL -->
 
             <div class="modal hidden" id="home-lights">
 
@@ -351,7 +292,7 @@
                         <label  class=" controls__label modal__menu-item emphasized-text" for="dawn">Рассвет</label>
                     </div>
 
-                <fieldset class="modal--range-slider">
+                <div class="modal--range-slider">
                         <input
                             class="controls__input--range lights-controls__input--range"
                             type="range"
@@ -366,7 +307,7 @@
                                 <img class="lights-range__extreme" src="guide/assets/icon_sun_min.svg">
                                 <img class="lights-range__extreme" src="guide/assets/icon_sun_max.svg">
                         </div>
-                </fieldset>
+                </div>
             </div>
 
             <button class="modal__button--submit emphasized-text modal__button text--main-title" type="button">Применить</button>
