@@ -1,3 +1,11 @@
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", doScript);
+} else {
+    doScript();
+}
+
+function doScript() {
+
 // Devices list
 
 const devices = [
@@ -232,3 +240,4 @@ scheduledList.addEventListener("scroll", debounce(() => {
     if (scheduledList.scrollTop > 0) scheduledList.classList.remove("arrow-box");
     if (scheduledList.scrollTop <= 0) scheduledList.classList.add("arrow-box");
 }, 10));
+}
