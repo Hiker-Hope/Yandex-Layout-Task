@@ -429,8 +429,8 @@ body {
 }
 
 .controls__input--range::-ms-thumb {
-    width: 67px;
-    height: 67px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     background-color: transparent;
     border: 4px solid #fff;
