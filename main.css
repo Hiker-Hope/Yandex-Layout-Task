@@ -632,6 +632,10 @@ body {
         padding: 0 var(--padding-small);
     }
 
+    .main {
+        padding-top: 64px;
+    }
+
     .dashboard--info{
         font-size: var(--text-small);
     }
@@ -656,9 +660,15 @@ body {
     .header {
         height: 64px;
         justify-content: space-between;
-        padding: 12px 0;
+        padding: 12px var(--padding-small);
         margin-bottom: 0;
         border: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        background: #FFF;
+        z-index: 2;
     }
 
     .header__navigation {
