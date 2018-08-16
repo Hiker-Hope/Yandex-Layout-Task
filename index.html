@@ -10,6 +10,7 @@
 </head>
 <body>
     <script src="bundle.js" async></script>
+    <script src="svidget.min.js" async></script>
 
     <header class="header">
         <div class="header__logo"></div>
@@ -253,16 +254,17 @@
                         <p class="modal__subtitle text">Включено</p>
                     </div>
                     <div class="modal__data">
-                        <h2 class="modal__data-text emphasized-text text--output" id="floor--output">+23</h2>
+                        <h2 class="modal__data-text emphasized-text text--output" id="floor--output">+10</h2>
                         <img class="modal__icon" src="guide/assets/icon_temperature_2.svg">
                     </div>
                 </div>
 
                     <div class="floor-modal__input-container">
-                        <input class="floor-controls__input--range" type="range" min="-10" max="30" id="range-floor" step="1"/>
-                        <div class="floor-modal--output" id="floor--output">
-                            <h2 class="modal__data-text emphasized-text floor-output--text">+23</h2>
-                        </div>
+                        <object id="nestThermostatWidget" role="svidget" data="nest-thermostat.svg" type="image/svg+xml" width="260" height="240">
+                            <param name="targetTemp" value="7" />
+                            <param name="unit" value="C" />
+                        </object>
+                        
                     </div>
             </div>
 

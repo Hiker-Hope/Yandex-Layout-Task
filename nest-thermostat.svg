@@ -1,0 +1,529 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svidget="http://www.svidget.org/svidget"
+		 width="260" height="240" viewBox="111 76 180 232" class="root state-none">
+	<title>Nest Thermostat Widget</title>
+
+
+	<svidget:params>
+		<svidget:param name="targetTemp" shortname="target" type="number" coerce="true" description="The target temperature." onset="handleDataParamSet" />
+		<svidget:param name="ambientTemp" shortname="amb" type="number" coerce="true" description="The ambient temperature." onset="handleDataParamSet" />
+		<svidget:param name="unit" type="string" subtype="choice" typedata="C" defvalue="C" description="The temperature unit. Either 'F' or 'C'. (default: 'F')" onset="handleDataParamSet" />
+		<svidget:param name="awayMode" shortname="away" type="boolean" coerce="true" defvalue="false" description="Whether the thermostat is in away mode." onset="handleDataParamSet" />
+	</svidget:params>
+
+	<svidget:actions>
+	</svidget:actions>
+
+	<svidget:events>
+		<svidget:event name="targetTempBeginChange" description="Triggered when the user starts dragging the dial to change the target temperature." />
+		<svidget:event name="targetTempEndChange" description="Triggered when the user ends dragging the dial to change the target temperature." />
+		<svidget:event name="targetTempChanged" description="Triggered when the user drags the dial to change the target temperature." />
+	</svidget:events>
+
+	<style>
+		<![CDATA[
+
+			/* background */
+			
+			.background .back {
+				-webkit-transition: fill 0.5s;
+				transition: fill 0.5s;
+			}
+
+			/* ticks */
+			
+			.ticks {
+				stroke-width: 1;
+				stroke: #000000;
+			}
+			.ticks .active {
+				stroke: #F5A623;
+		
+			}
+
+			.tick-target {
+				cursor: pointer;
+			}
+
+			/* labels */
+			
+			.root text {
+				fill: #000;
+				text-anchor: middle;
+				font-family: Arial, sans-serif;
+				alignment-baseline: central;
+			}
+			.label-target {
+				font-size: 86px;
+				font-weight: bold;
+			}
+
+			image { pointer-events: none; }
+
+		]]>
+	</style>
+
+	<g transform="matrix(0.66, 0, 0, 0.66, 69.4, 69.5)">
+		<g class="ticks">
+			<path d="M222 57 L208 67 L232 71 Z" stroke-width="0" stroke="" class="tick-target" fill="#000000" transform="rotate(-150 200 200)" />
+			<path d="M0 0 Z" class="tick-ambient" transform="rotate(104 200 200)" />
+			<g id="tickmarks" data-comment="126 ticks">
+				<path d="M84 345 L106 316" class="active"></path>
+				<path d="M78 340 L101 312" class="active"></path>
+				<path d="M72 335 L97 308" class="active"></path>
+				<path d="M67 329 L93 304" class="active"></path>
+				<path d="M62 323 L88.5 300" class="active"></path>
+				<path d="M57 317 L84 295" class="active"></path>
+				<path d="M52 311 L80 290" class="active"></path>
+				<path d="M48 305 L76 285.5" class="active"></path>
+				<path d="M44 299 L72 280" class="active"></path>
+				<path d="M40 293 L69 275" class="active"></path>
+				<path d="M36 287 L65.5 269.5" class="active"></path>
+				<path d="M32 280 L63 264" class="active"></path>
+				<path d="M29 273 L60 258" class="active"></path>
+				<path d="M26 266 L57 252" class="active"></path>
+				<path d="M23 258 L55 246" class="active"></path>
+				<path d="M20.5 250 L54 240" class="active"></path>
+				<path d="M18.5 243 L52 233" class="active"></path>
+				<path d="M17 235 L51 227" class="active"></path>
+				<path d="M15 227 L50.3 221" class="active"></path>
+				<path d="M14 218 L50 215" class="active"></path>
+				<path d="M13.5 210 L49.7 209" class="active"></path>
+				<path d="M13 202 L49.5 203" class="active"></path>
+				<path d="M13 194 L49.3 197" class="active"></path>
+				<path d="M13.5 186 L49.5 191" class="active"></path>
+				<path d="M14 179 L50 184.5" class="active"></path>
+				<path d="M15.5 171 L51 178" class="active"></path>
+				<path d="M16.5 164 L52 172" class="active"></path>
+				<path d="M18 157 L53 166" class="active"></path>
+				<path d="M19.7 149 L54.5 159" class="active"></path>
+				<path d="M22 141 L56.5 153" class="active"></path>
+				<path d="M25 134 L59 147" class="active"></path>
+				<path d="M27.8 127 L61 142" class="active"></path>
+				<path d="M31 120 L63.5 136.5" class="active"></path>
+				<path d="M34.5 113 L66.3 131.5" class="active"></path>
+				<path d="M38 106 L69 125" class="active"></path>
+				<path d="M42.5 99.5 L72 120" class="active"></path>
+				<path d="M46.6 93 L76 114.5" class="active"></path>
+				<path d="M51 87 L79.5 109" class="active"></path>
+				<path d="M56 81 L83.7 104.5" class="active"></path>
+				<path d="M61 75 L87.5 100" class="active"></path>
+				<path d="M66.5 69 L92 95" class="active"></path>
+				<path d="M72 64 L96.5 90.7" class="active"></path>
+				<path d="M77 59 L101 86" class="active"></path>
+				<path d="M83 54 L106 82" class="active"></path>
+				<path d="M89 50 L111 78" class="active"></path>
+				<path d="M95.5 45 L116 74.5" class="active"></path>
+				<path d="M102 41 L121 71.5" class="active"></path>
+				<path d="M108.5 37.7 L127 68.5" class="active"></path>
+				<path d="M115 34 L133 65" class="active"></path>
+				<path d="M122 30.5 L138 62.5" class="active"></path>
+				<path d="M129 27.5 L144 60" class="active"></path>
+				<path d="M136 24.5 L149.5 58" class="active"></path>
+				<path d="M143 22 L155 55.5" class="active"></path>
+				<path d="M151 19.5 L160.5 54" class="active"></path>
+				<path d="M159 17.5 L167 52" class="active"></path>
+				<path d="M167 16 L173 51" class="active"></path>
+				<path d="M175 14.5 L179 50" class="active"></path>
+				<path d="M183 13.6 L185.6 49" class="active"></path>
+				<path d="M191 13.5 L191.5 48.7" class="active"></path>
+				<path d="M199 13.3 L198 48.5" class="active"></path>
+				<path d="M207 13.5 L204.5 48.8" class="active"></path>
+				<path d="M215 14.1 L211 49.2" class="active"></path>
+				<path d="M222.5 14.7 L217 50" class="active"></path>
+				<path d="M230 16 L223 51" class="active"></path>
+				<path d="M237 17.5 L228.5 52" class="active"></path>
+				<path d="M244 19 L234.5 53.5" class="active"></path>
+				<path d="M251.2 21 L240 54.8" class="active"></path>
+				<path d="M258 23 L246 56.7" class="active"></path>
+				<path d="M265 25.5 L251.7 58.7" class="active"></path>
+				<path d="M271 28 L257 61" class="active"></path>
+				<path d="M277.5 30.5 L262.5 63" class="active"></path>
+				<path d="M284 33.5 L268 66" class="active"></path>
+				<path d="M291 37 L273.5 69" class="active"></path>
+				<path d="M297.5 41 L278.5 71.5" class="active"></path>
+				<path d="M304 45 L283 75" class="active"></path>
+				<path d="M310 49 L288 78.5" class="active"></path>
+				<path d="M316 53.5 L292 82" class="active"></path>
+				<path d="M321 57.7 L296.5 85.5" class="active"></path>
+				<path d="M326.5 62.5 L301 89" class="active"></path>
+				<path d="M331 67 L305 93.2" class="active"></path>
+				<path d="M336 72 L309 97" class="active"></path>
+				<path d="M340.8 77.5 L313 101" class="active"></path>
+				<path d="M345.7 82.8 L317 105" class="active"></path>
+				<path d="M350 88 L320.5 110" class="active"></path>
+				<path d="M354 94 L324 115" class="active"></path>
+				<path d="M358.2 100 L327.5 120" class="active"></path>
+				<path d="M362 106.5 L330 125" class="active"></path>
+				<path d="M366 113 L333.6 130" class="active"></path>
+				<path d="M369 120 L336 135" class="active"></path>
+				<path d="M372 127.3 L339 141" class="active"></path>
+				<path d="M375 134 L341 147" class="active"></path>
+				<path d="M377.5 141 L343 153" class="active"></path>
+				<path d="M380 148 L344.5 158.4" class="active"></path>
+				<path d="M382 156 L346.5 165" class="active"></path>
+				<path d="M384 164 L348 171" class="active"></path>
+				<path d="M385 171.5 L349 177" class="active"></path>
+				<path d="M386 179 L350 183" class="active"></path>
+				<path d="M386.5 187 L350.5 188.5" class="active"></path>
+				<path d="M386.5 194.5 L350.3 194" class="active"></path>
+				<path d="M386.7 202 L350.2 200" class="active"></path>
+				<path d="M386.5 209.5 L350 206" class="active"></path>
+				<path d="M386.4 216.5 L349.8 212" class="active"></path>
+				<path d="M385.5 223.5 L349.5 217.5" class="active"></path>
+				<path d="M384.5 230.5 L348.7 223.5" class="active"></path>
+				<path d="M383 239 L347.5 230" class="active"></path>
+				<path d="M381 246 L346 236" class="active"></path>
+				<path d="M379 253 L344.5 242" class=""></path>
+				<path d="M377 260 L342.5 248" class=""></path>
+				<path d="M374.8 266.6 L340.5 253.5" class=""></path>
+				<path d="M372 273 L338.5 259" class=""></path>
+				<path d="M368 280 L336 264.4" class=""></path>
+				<path d="M365 287 L333 270" class=""></path>
+				<path d="M362 293.5 L330.5 275" class=""></path>
+				<path d="M358 299.5 L327.5 280" class=""></path>
+				<path d="M354 306 L324 285" class=""></path>
+				<path d="M349.5 311.7 L321 290" class=""></path>
+				<path d="M345 318 L317 294.2" class=""></path>
+				<path d="M339.5 324 L313.5 298.5" class=""></path>
+				<path d="M335 329.5 L309 303" class=""></path>
+				<path d="M330 334 L304.5 307" class=""></path>
+				<path d="M325 339 L300.5 311.5" class=""></path>
+				<path d="M320 344 L296.5 315.5" class=""></path>
+			</g>
+		</g>
+
+		<g class="labels">
+			<text x="200" y="200" class="label-target"></text>
+		</g>
+
+	</g>
+
+	<script type="application/javascript" xlink:href="./svidget.min.js"></script>
+	<script type="application/javascript">
+		<![CDATA[
+	
+		// constants
+		var CENTER_X = 200;
+		var CENTER_Y = 200;
+		var TEMP_INFO = {
+			
+			"C": {
+				min: 10, max: 30
+			}
+		}
+		// range: -150 to 140 (2 degree increments)
+		var MIN_ANGLE = -149;
+		var MAX_ANGLE = 132;
+		var ANGLE_RANGE = MAX_ANGLE - MIN_ANGLE;
+		var OUTER_RADIUS = (CENTER_X * 2);
+		var INNER_RADIUS = (CENTER_X * 2) / 8;
+		var AMB_POSITION = [CENTER_X, OUTER_RADIUS - (OUTER_RADIUS - INNER_RADIUS) / 2]
+		
+		// param variables
+		var params = {}; // internal store of params
+
+		// general variables
+		var _loaded = false;
+		var rootElement;
+		var currentUnit;
+		
+		
+		/* Initialization */
+		
+		// entry point
+		function init() {
+			//debugger;
+			console.log('[nest-thermometer] init');
+			// init stuff
+			initUI();
+			initEvents();
+			initParams();
+			draw();
+
+			_loaded = true;
+		}
+		
+		function initParams() {
+			loadParams();
+		}
+		
+		function initUI() {
+			rootElement = getByClass("root");
+		}
+		
+		function initEvents() {
+			rootElement.addEventListener('mousedown', dragStart);
+			rootElement.addEventListener('touchstart', dragStart);
+			rootElement.addEventListener('mouseup', dragEnd);
+			rootElement.addEventListener('mouseleave', dragEnd);
+			rootElement.addEventListener('touchend', dragEnd);
+			rootElement.addEventListener('mousemove', dragMove);
+			rootElement.addEventListener('touchmove', dragMove);
+		}
+		
+		
+		/* Param Loading */
+
+		function loadParams() {
+			//debugger;
+
+			var widget =  svidget.$;
+			loadDataParams(widget);
+		}
+		
+		function loadDataParams(widget) {
+			params.unit = widget.param("unit").value();
+			params.targetTemp = sanitizeTempValue(widget.param("targetTemp").value(), params.unit);
+			params.ambientTemp = sanitizeTempValue(widget.param("ambientTemp").value(), params.unit);
+			currentUnit = TEMP_INFO[params.unit];
+		}
+		
+		// Widget Events
+		
+		function handleDataParamSet(e) {
+			//debugger;
+			if (!_loaded) return;
+			var widget =  svidget.$;
+			loadDataParams(widget);
+			// redraw widget
+			draw();
+		}
+
+		function triggerTargetTempChangeBegin() {
+			 svidget.$.event("targetTempBeginChange").trigger();
+		}
+
+		function triggerTargetTempChangeEnd() {
+			 svidget.$.event("targetTempEndChange").trigger();
+		}
+		
+		function triggerTargetTempChanged() {
+			 svidget.$.event("targetTempChanged").trigger({ targetTemp: params.targetTemp });
+		}
+
+
+		// Sanitizers
+		
+		function sanitizeTempValue(temp, unit) {
+			temp = temp || 0;
+			if (currentUnit == null) return temp;
+			// return number in range for C 
+			return rangify(temp, currentUnit.min, currentUnit.max);
+		}
+
+
+		// Draw Functions
+		
+		function draw() {
+				drawTempMode();
+		}
+
+		function drawTempMode() {
+			console.log('[nest-thermometer] drawing temp mode');
+			// draw ticks
+			drawTempRange();
+		}
+		
+		function drawTempRange() {
+			updateTempRange();
+		}
+		
+
+		
+		function updateTempRange() {
+			// set target tick
+			var targetDeg = tempDegree(params.targetTemp);
+			getByClass("tick-target").setAttribute("transform", rotateCenterString(targetDeg));
+			// set ambient tick
+			var ambDeg = tempDegree(params.ambientTemp);
+			getByClass("tick-ambient").setAttribute("transform", rotateCenterString(ambDeg));
+			// update ticks to active/not-active
+			updateTicks();
+			// update temp label
+			updateTempLabel(params.targetTemp);
+		}
+		
+		function updateTempLabel(val) {
+			val = roundHalf(val);
+			var whole = Math.floor(val);
+			setText(getByClass("label-target"), `+${whole}`);
+		}
+
+	
+		// sets the ticks to active/inactive according to range between target and ambient temps
+		function updateTicks() {
+			var ticksEle = document.getElementById("tickmarks");
+			var tickCount = ticksEle.children.length;
+			var index0 = tempTickIndex(params.targetTemp, tickCount);
+			var index1 = tempTickIndex(params.ambientTemp, tickCount);
+			var min = Math.min(index0, index1);
+			var ticksEle = document.getElementById("tickmarks");
+			for (var i=0; i<tickCount; i++) {
+				var outside = (i < index0 && i < index1) || (i > index0 && i > index1);
+				setClass(ticksEle.children[i], "active", !outside);
+			}
+		}
+	
+		// Helpers
+		
+		// Restrict a number to a min + max range
+		function rangify(val, min, max) {
+			if (val < min) return min;
+			if (val > max) return max;
+			return val;
+		}
+	
+		// Round a number to the nearest 0.5
+		function roundHalf(num) {
+			return Math.round(num * 2) / 2;
+		}
+		
+		function rotateCenterString(deg) {
+			return "rotate(" + deg + " " + CENTER_X + " " + CENTER_Y + ")";
+		}
+		
+		function tempDegree(temp) {
+			if (currentUnit == null) return 0;
+			temp = roundHalf(temp);
+			temp = rangify(temp, currentUnit.min, currentUnit.max);
+			var pct = (temp - currentUnit.min) / (currentUnit.max - currentUnit.min);
+			var deg = (pct * ANGLE_RANGE) + MIN_ANGLE;
+			return deg;
+		}
+		
+		function degreeTemp(deg) {
+			if (currentUnit == null) return 0;
+			var pct = (deg - MIN_ANGLE) / ANGLE_RANGE;
+			var temp = (pct * (currentUnit.max - currentUnit.min)) + currentUnit.min;
+			return temp;
+		}
+		
+		// given the temp, gets the index of the tick (0-tickCount) that it corresponds to)
+		function tempTickIndex(temp, tickCount) {
+			var deg = tempDegree(temp); 
+			var index = (Math.round(deg - MIN_ANGLE) / ANGLE_RANGE) * (tickCount - 1);
+			index = rangify(index, 0, tickCount);
+			return index;
+		}
+		
+		// Rotate a Cartesian point about given origin by X degrees
+		function rotatePoint(point, angle, origin) {
+			var radians = angle * Math.PI / 180;
+			var x = point[0] - origin[0];
+			var y = point[1] - origin[1];
+			var x1 = x * Math.cos(radians) - y * Math.sin(radians) + origin[0];
+			var y1 = x * Math.sin(radians) + y * Math.cos(radians) + origin[1];
+			return [x1, y1];
+		}
+		
+		function degreeAtPoint(point) {
+			var x = point[0];
+			var y = point[1];
+			var ax = x - CENTER_X;
+			var ay = CENTER_Y - y;
+			var rad = Math.atan2(ay, ax);
+			var deg = rad * 180 / Math.PI;
+			var adjdeg = -(deg - 90);
+			adjdeg = adjdeg > 180 ? adjdeg - 360 : adjdeg;
+			// rangify degree
+			adjdeg = rangify(adjdeg, MIN_ANGLE, MAX_ANGLE);
+			return adjdeg;
+		}
+	
+		function setClass(ele, className, state) {
+			ele.classList[state ? 'add' : 'remove'](className);
+		}
+		
+		function setText(ele, text) {
+			ele.textContent = text || "";
+		}
+		
+		// Set attributes for an element
+		function setAttrs(ele, attrs) {
+			for (var i in attrs) {
+				ele.setAttribute(i, attrs[i]);
+			}
+		}
+		
+		function getByClass(className) {
+			var eles = document.getElementsByClassName(className);
+			if (eles.length > 0) return eles[0];
+			return null;
+		}
+		
+		
+		// Drag Events
+		
+		// Drag to control
+		var _drag = {
+			inProgress: false,
+			startPoint: null,
+			startTemperature: 0,
+			lockAxis: undefined
+		};
+		var startDelay;
+		var dragLockAxisDistance = 15;
+		
+		function dragStart(e) {
+			console.log('[nest-thermometer] drag start');
+			startDelay = setTimeout(function() {
+				setClass(rootElement, 'dragging', true);
+				_drag.inProgress = true;
+				_drag.startPoint = eventPosition(e);
+				_drag.startTemp = params.targetTemp || currentUnit.minValue;
+				_drag.currentTemp = null;
+				_drag.lockAxis = undefined;
+				triggerTargetTempChangeBegin();
+			}, 100);
+		};
+		
+		function dragEnd(e) {
+			console.log('[nest-thermometer] drag end');
+			clearTimeout(startDelay);
+			setClass(rootElement, 'dragging', false);
+			if (!_drag.inProgress) return;
+			_drag.inProgress = false;
+			triggerTargetTempChangeEnd();
+		};
+		
+		function dragMove(e) {
+			if (!_drag.inProgress) return;
+			e.preventDefault();
+			var pos = eventPosition(e);
+			var deg = degreeAtPoint(pos);
+			//console.log('[nest-thermometer] drag degree: ' + deg);
+			var temp = degreeTemp(deg);
+			params.targetTemp = roundHalf(temp);
+			var changed = params.targetTemp != _drag.currentTemp;
+			_drag.currentTemp = params.targetTemp;
+			// update ticks (if temp changed)
+			if (changed) {
+				// set target tick
+				var targetDeg = tempDegree(params.targetTemp);
+				getByClass("tick-target").setAttribute("transform", rotateCenterString(targetDeg));
+				// update temp label
+				updateTempLabel(params.targetTemp);
+				// update tick highlighting
+				updateTicks();
+				// trigger changed event
+				triggerTargetTempChanged();
+			}
+		}
+		
+		function eventPosition(e) {
+			if (e.targetTouches && e.targetTouches.length) {
+				return [e.targetTouches[0].clientX, e.targetTouches[0].clientY];
+			} 
+			else {
+				return [e.x, e.y];
+			}
+		}
+
+		// Global Events
+
+		window.addEventListener('load', init, false);
+
+	  ]]>
+	</script>
+</svg>
